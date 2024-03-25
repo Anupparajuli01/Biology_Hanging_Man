@@ -20,4 +20,4 @@ letter.
 on the third failed attempt to guess the word correctly. Please get the word in four accurate shots to avoid a loss for the game. And it will pop you a button either to try again or quit.
 • If the user clicks the try button again, then the user will be given a chance to play again.
 
-# This project was submitted for the Introduction to Computer Science(MATH121)(2023),Soka University of America.
+Note: This project was submitted for the Introduction to Computer Science(MATH121)(2023), Soka University of America.
