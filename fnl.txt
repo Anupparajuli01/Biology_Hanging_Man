@@ -1,0 +1,400 @@
+Analogous structure: a structure that is similar because of evolution in response to similar selection pressures resulting in convergent evolution, not similar because of descent from a common ancestor
+Anaphase: the stage of mitosis during which sister chromatids are separated from each other
+Aneuploid: an individual with an error in chromosome number; includes deletions and duplications of chromosome segments
+Anion: a negative ion formed by gaining electrons
+Anticodon: three consecutive nucleotides on tRNA that complement the codon on a mRNA
+Aquaporin: channel protein that allows water through the membrane at a very high rate
+Asexual reproduction: produces genetically identical clones to the parent organism
+Atom: a basic unit of matter that cannot be broken down by normal chemical reactions
+Atomic number: the number of protons in an atom
+ATP synthase: a membrane-embedded protein complex that regenerates ATP from ADP with energy from protons diffusing through it
+ATP: adenosine triphosphate; the cell's energy currency
+Autosomal dominant inheritance: pattern of dominant inheritance that corresponds to a gene on one of the 22 autosomal chromosomes
+Autosomal recessive inheritance: pattern of recessive inheritance that corresponds to a gene on one of the 22 autosomal chromosomes
+Autosome: chromosome pairs one through twenty-two and does not determine a person’s sex
+Autotroph: an organism that can make its own food from materials in its environment
+Base: a substance that absorbs hydrogen ions and therefore raises pH
+Binary fission: the process of prokaryotic cell division
+Biology: the study of life
+Biosphere: a collection of all ecosystems on Earth
+Blending hypothesis of inheritance: states that when two individuals made an offspring, their original parental traits were lost because their traits blended together when the offspring was formed
+Bottleneck effect: the magnification of genetic drift as a result of natural events or catastrophes
+Buffer: a solution that resists a change in pH by absorbing or releasing hydrogen or hydroxide ions
+Calvin cycle: the reactions of photosynthesis that use the energy stored by the light-dependent reactions to form glucose and other carbohydrate molecules
+Carbohydrate: serve as energy sources and structural support in cells
+Carriers: a heterozygous individual who does not display symptoms of a recessive genetic disorder but can transmit the disorder to his or her offspring
+Catabolic: describes the pathway in which complex molecules are broken down into simpler ones, yielding energy as an additional product of the reaction
+Catalyst: substances that speed up the rate of chemical reactions
+Cation: mechanisms that monitor the preparedness of a eukaryotic cell to advance through the various cell cycle stages
+Cell cycle: the ordered sequence of events that a cell passes through between one cell division and the next
+Cell plate: a structure formed during plant-cell cytokinesis by Golgi vesicles fusing at the
+Cell theory: the biological concept that states that all organisms are composed of one or more cells, the cell is the basic unit of life, and new cells arise from existing cells
+Cell wall: a rigid cell covering made of cellulose in plants, peptidoglycan in bacteria, non-peptidoglycan compounds in Archaea, and chitin in fungi that protects the cell, provides structural support and gives shape to the cell
+Cell: the smallest fundamental unit of structure and function in living things
+Cellulose: a polysaccharide that makes up the cell walls of plants and provides structural support to the cell
+Central dogma: The flow of genetic information in cells from DNA to mRNA to protein
+Central vacuole: a large plant cell organelle that acts as a storage compartment, water reservoir, and site of macromolecule degradation
+Centrosomes: specialized microtubules that pull chromosomes to their poles during cell division and also give rise to the mitotic spindle
+Characteristic: different heritable, physical features
+Chemical bond: an interaction between two or more of the same or different elements that result in the formation of molecules
+Chemical energy: type of potential energy that exists within chemical bonds
+Chemical reactions: occur when two or more atoms bond together to form molecules or when bonded atoms break apart
+Chemiosmosis: the movement of hydrogen ions down their electrochemical gradient across a membrane through ATP synthase to generate ATP
+Chemoautotrophs: an organism capable of producing its own food by extracting energy from inorganic chemical compounds
+Chiasmata: (singular = chiasma) the structure that forms at the crossover points after genetic material is exchanged
+Chitin: a type of carbohydrate that forms the outer skeleton of arthropods, such as insects and crustaceans, and the cell walls of fungi
+Chlorophyll a: the form of chlorophyll that absorbs violet-blue and red light
+Chlorophyll b: the form of chlorophyll that absorbs blue and red-orange light
+Chlorophyll: the green pigment that captures the light energy that drives the reactions of photosynthesis
+Chloroplast: a plant cell organelle that carries out photosynthesis
+Cholesterol: a lipid that plays an important role in membrane fluidity
+Chromatin: DNA wound around proteins forming long fiber-like strands
+Chromosomal Theory of Inheritance: a theory proposing that chromosomes are the gene's vehicles and that their behavior during meiosis is the physical basis of the inheritance patterns that Mendel observed
+Chromosome: structures made of chromatin that are visible when the cell is dividing
+Cilium: cilia) a short, hair-like structure that extends from the plasma membrane in large numbers and is used to move an entire cell or move substances along the outer surface of the cell
+Citric acid cycle: a series of enzyme-catalyzed chemical reactions of central importance in all living cells that harvest the energy in carbon-carbon bonds of sugar molecules to generate ATP; the citric acid cycle is an aerobic metabolic pathway because it requires oxygen in later reactions to proceed
+Cleavage furrow: a constriction formed by the actin ring during animal-cell cytokinesis that leads to cytoplasmic division
+Codominance: in a heterozygote, complete and simultaneous expression of both alleles for the same characteristic
+Codon: three consecutive nucleotides in mRNA that specify the addition of a specific amino acid or the release of a polypeptide chain during translation
+Coenzyme: small organic molecules, such as a vitamin or its derivative, which is required to enhance an enzyme's activity
+Cofactor: inorganic ion, such as iron and magnesium ions, required for optimal enzyme activity regulation
+Cohesion: the intermolecular forces between water molecules caused by the polar nature of water; creates surface tension
+Community: a set of populations inhabiting a particular area
+Competitive inhibition: a general mechanism of enzyme activity regulation in which a molecule other than the enzyme’s substrate can bind the active site and prevent the substrate itself from binding, thus inhibiting the overall rate of reaction for the enzyme
+Complete dominance: in a heterozygote the dominant allele masks the effect of the recessive allele
+Compound: are made up of different types of atoms held together by chemical bonds
+Concentration gradient: an area of high concentration across from an area of low concentration
+Continuous variation: a variation in a characteristic in which individuals show a range of traits with small differences between them
+Control: a part of an experiment that does not change during the experiment
+Convergent evolution: an evolution that results in similar forms on different species
+Covalent bond: a type of strong bond between two or more of the same or different elements;forms when electrons are shared between elements
+Crossing over: (also, recombination) the exchange of genetic material between homologous chromosomes resulting in chromosomes that incorporate genes from both parents of the chromosomes resulting in chromosomes that incorporate genes from both parents of the organism forming reproductive cells
+Cytokinesis: the division of the cytoplasm following mitosis to form two daughter cells
+Cytoplasm: the entire region between the plasma membrane and the nuclear envelope, consisting of organelles suspended in the gel-like cytosol, the cytoskeleton, and various chemicals
+Cytoskeleton: the network of protein fibers that collectively maintain the shape of the cell, secures some organelles in specific positions, allows cytoplasm and vesicles to move within thesecures some organelles in specific positions, allows cytoplasm and vesicles to move within the cell, and enables unicellular organisms to move
+Cytosol: the gel-like material of the cytoplasm in which cell structures are suspended
+Deductive reasoning: a form of logical thinking that uses a general statement to forecast specific results
+Dehydration synthesis: a reaction where monomers combine with the help of water (and often enzyme) to form polymers
+Deletion: a part of a chromosome is lost or removed
+Denaturation: loss of shape in a protein that may be a result of changes in temperature, pH, or chemical exposure
+Denature: loss of shape in a protein that may be a result of changes in temperature, pH, or
+Denaturation: loss of shape in a protein that may be a result of changes in temperature, pH, or chemical exposure
+Deoxyribonucleic acid (DNA): a double-stranded polymer of nucleotides that carries the hereditary information of the cell hereditary information of the cellVI Return to Table of Contents
+Deoxyribose: a five-carbon sugar molecule with a hydrogen atom rather than a hydroxyl group in the 2' position; the sugar component of DNA nucleotides
+Dependent variable: the variable that will change when the independent variable is altered; this is what the researcher will measure or observe during the experiment
+Desmosome: a linkage between adjacent epithelial cells that forms when cadherins in the plasma membrane attach to intermediate filaments
+Diffusion: a passive process of transport where solutes move from an area of high concentration to an area of low concentration until equilibrium is met
+Dihybrid: the result of a cross between two true-breeding parents that express different traits for two characteristics
+Diploid: describes a cell, nucleus, or organism containing two sets of chromosomes (2n)
+Disaccharide: two sugar monomers that are linked together by a peptide bond
+Discontinuous variation: a variation in a characteristic in which individuals show two, or a few, traits with significant differences between them
+Divergent evolution: an evolution that results in different forms in two species with a common ancestor
+DNA ligase: the enzyme that catalyzes the joining of DNA fragments together
+DNA polymerase: an enzyme that synthesizes a new strand of DNA complementary to a template strand
+Domain: the highest level of the taxonomic hierarchy; includes the Eukarya, Archaea, and bacteria
+Dominant: describes a trait that masks the expression of another trait when both versions of the gene are present in an individual
+Double helix: the molecular shape of DNA in which two strands of nucleotides wind around each other in a spiral shape
+Duplication: a part of a chromosome is duplicated and either inserted into a different position on the same chromosome or a completely different chromosome
+Ecosystem: all living things in a particular area together with the abiotic, nonliving parts of that environment
+Egg (ovum): the female gamete; a haploid cell
+Electron transfer: the movement of electrons from one element to another
+Electron transport chain: a series of four large, multi-protein complexes embedded in the inner mitochondrial membrane that accepts electrons from donor compounds and harvests energy from mitochondrial membrane that accepts electrons from donor compounds and harvests energy from a series of chemical reactions to generate a hydrogen ion gradient across the membrane
+Electron: a negatively charged particle that resides outside of the nucleus in the electron orbital; lacks functional mass and has a charge of –1
+Electronegativity: an atom's ability to attract a shared pair of electrons more closely to its own nucleus
+Element: one of 118 unique substances that cannot be broken down into smaller substances and retain the characteristic of that substance; each element has a specified number of protons and retain the characteristic of that substance; each element has a specified number of protons and unique properties
+Embryology: the study an organism’s development from a zygote to its adult form
+Endergonic: describes a chemical reaction that results in products that store more chemical potential energy than the reactants
+Endocytosis: a type of active transport that moves substances, including fluids and particles, into cell
+Endomembrane system: the group of organelles and membranes in eukaryotic cells that work together to modify, package, and transport lipids and proteins
+Endoplasmic reticulum (ER): a series of interconnected membranous structures within eukaryotic cells that collectively modify proteins and synthesize lipids
+Endosymbiosis: a relationship in which one organism lives inside the other
+Endosymbiotic theory: a theory that explains how mitochondria and chloroplasts originated
+Energy coupling: energy released from exergonic processes is used to support or transferred to endergonic processes
+Energy: the ability to do work or to create change
+Entropy: the measure of randomness or disorder within a system
+Enzyme: a molecule that catalyzes a biochemical reaction; speeds up a chemical reaction by lowering the amount of activation energy need to initiate a chemical reaction
+Eukaryote: an organism with cells that have nuclei and membrane-bound organelles
+Eukaryotic cell: a cell that has a membrane-bound nucleus and several other membrane-bound compartments or sacs
+Euploid: an individual with the appropriate number of chromosomes for their species
+Evaporation: the release of water molecules from liquid water to form water vapor
+Evolution: the process of gradual change in a population that can also lead to new species arising from older species
+Exergonic: describes a chemical reaction that results in products with less chemical potential energy than the reactants, plus the release of free energy
+Exocytosis: a process of passing material out of a cell
+Exon: a sequence present in protein-coding mRNA after completion of pre-mRNA splicing
+Experimental group: the group where the independent variable is applied
+Extracellular matrix: the material, primarily collagen, glycoproteins, and proteoglycans, secreted from animal cells that hold cells together as a tissue, allows cells to communicate withsecreted from animal cells that hold cells together as a tissue, allows cells to communicate with each other, and provides mechanical protection and anchoring for cells in the tissue
+F1: the first filial generation in a cross; the offspring of the parental generation
+F2: the second filial generation produced when F1 individuals are self-crossed or fertilized with each other
+Facilitated transport: a process by which solutes moves down a concentration gradient (from high to low concentration) using integral membrane proteins
+Falsifiable: it can be shown to be false by experimental results
+Fat: a lipid molecule composed of three fatty acids and glycerol (triglyceride) that typically exists in a solid form at room temperature
+Feedback inhibition: a mechanism of enzyme activity regulation in which the product of an action or the final product of a series of sequential reactions inhibits an enzyme for an earlierreaction or the final product of a series of sequential reactions inhibits an enzyme for an earlier step in the reaction series
+Fermentation: the steps that follow the partial oxidation of glucose via glycolysis to regenerateNAD+; occurs in the absence of oxygen and uses an organic compound as the final electronNAD+; occurs in the absence of oxygen and uses an organic compound as the final electron acceptor
+Fertilization: the union of two haploid cells typically from two individual organisms
+First law of thermodynamics: states that the total amount of energy in the universe is constant and conserved
+Flagellum: flagella) the long, hair-like structure that extends from the plasma membrane and is used to move the cell
+Fluid mosaic model: a model of the structure of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and glycolipids, resulting in a fluidcomponents, including phospholipids, cholesterol, proteins, and glycolipids, resulting in a fluid rather than static character
+Fossils: mineralized or preserved remains of organisms found in the past
+Founder effect: a magnification of genetic drift in a small population that migrates away from a large parent population carrying with it an unrepresentative set of alleles
+Free energy: usable energy or energy that is available to do work
+Functional group: groups of atoms that occur within molecules and confer specific chemical properties to those molecules
+G0 phase: a cell-cycle phase distinct from the G1 phase of interphase; a cell in G0 is not preparing to divide
+G1 phase: (also, first gap) a cell-cycle phase; the first phase of interphase centered on cell growth during mitosis
+G2 phase: (also, second gap) a cell-cycle phase; third phase of interphase where the cell undergoes the final preparations for mitosis
+Gamete: a haploid reproductive cell or sex cell (sperm or egg)
+Gap junction: a channel between two adjacent animal cells that allows ions, nutrients, and other low-molecular-weight substances to pass between the cells, enabling the cells to communicate
+Gene expression: processes that control whether a gene is expressed
+Gene flow: the flow of alleles in and out of a population due to the migration of individuals' orgametes
+Gene pool: all of the alleles carried by all of the individuals in the population
+Gene: the basic unit of heredity; a sequence of DNA that codes for a specific peptide or RNA molecule
+Genetic code: the amino acids that correspond to three-nucleotide codons of mRNA
+Genetic drift: the effect of chance on a population’s gene pool
+Genome: the entire genetic complement (DNA) of an organism
+Genotype: the underlying genetic makeup, consisting of both physically visible and non-expressed alleles, of an organism
+Germline cell: specialized cell line that produces gametes, such as eggs or sperm
+Glycocalyx: a fuzzy-appearing coating around the cell formed from glycoproteins and other carbohydrates attached to the cell membrane.
+Glycogen: a storage carbohydrate in animals
+Glycolipid: a combination of carbohydrates and lipids
+Glycolysis: the process of breaking glucose into two three-carbon molecules with the production of ATP and NADH
+Glycoprotein: a combination of carbohydrates and proteins
+Golgi apparatus: a eukaryotic organelle made up of a series of stacked membranes that sorts, tags, and packages lipids and proteins for distribution
+Granum: a stack of thylakoids located inside a chloroplast
+Guard cells: specialized plant cells that control the opening and closing of the stomata
+Incomplete dominance: in a heterozygote, expression of two contrasting alleles such that the individual displays an intermediate phenotype
+Independent assortment: describing something composed of genetic material from two sources, such as a chromosome with both maternal and paternal segments of DNA
+Independent variable: is the variable that is being altered or changed by the researcher; it is the variable being tested
+Inductive reasoning: a form of logical thinking that uses related observations to arrive at a general conclusion
+Inheritance of acquired characteristics: a phrase that describes the mechanism of evolution proposed by Lamarck in which traits acquired by individuals through use or disuse could beproposed by Lamarck in which traits acquired by individuals through use or disuse could be passed on to their offspring thus leading to evolutionary change in the population
+Integral protein: protein integrated into the membrane structure that interacts extensively with the membrane lipids' hydrocarbon chains and often spans the membrane
+Interkinesis: a period of rest that may occur between meiosis I and meiosis II; there is no replication of DNA during interkinesis
+Intermediate filaments: fibers of the cytoskeleton that are of intermediate diameter and have structural functions, such as maintaining the shape of the cell and anchoring organelles
+Interphase: the period of the cell cycle leading up to mitosis; includes G1, S, and G2 phases; the interim between two consecutive cell divisions
+Intron: non–protein-coding intervening sequences that are spliced from mRNA during processing
+Inversion: the detachment, 180° rotation, and reinsertion of a chromosome arm
+Ion: an atom or compound that does not contain equal numbers of protons and electrons, and therefore has a net charge
+Ionic bond: a chemical bond that forms between ions of opposite charges
+Isomers: molecules that share the same chemical formula but differ in the placement (structure)of their atoms and or chemical bonds
+Isotonic: describes a solution in which the extracellular fluid has the same osmolarity as the fluid inside the cell
+Isotope: one or more forms of an element that have different numbers of neutrons
+Karyogram: the photographic image of a karyotype
+Karyotype: the number and appearance of an individual’s chromosomes, including the size,banding patterns, and centromere position
+Kinetic energy: the type of energy associated with objects in motion
+Kinetochore: a protein structure in the centromere of each sister chromatid that attracts and bindsspindle microtubules during prometaphase
+Lactic acid fermentation: the steps that follow the partial oxidation of glucose via glycolysis toregenerate NAD+ and produces the products lactic acid
+Lagging strand: during replication of the 3' to 5' strand, the strand that is replicated in shortfragments and away from the replication fork
+Law of dominance: in a heterozygote, one trait will conceal the presence of another trait for thesame characteristic
+Law of independent assortment: genes do not influence each other concerning sorting of allelesinto gametes; every possible combination of alleles is equally likely to occur
+Law of segregation: paired unit factors (i.e., genes) segregate equally into gametes such thatoffspring have an equal likelihood of inheriting any combination of factors
+Leading strand: the strand that is synthesized continuously in the 5' to 3' direction that issynthesized in the direction of the replication fork
+Light-dependent reaction: the first stage of photosynthesis where visible light is absorbed toform two energy-carrying molecules (ATP and NADPH)
+Linkage: a phenomenon in which alleles that are located in close proximity to each other on thesame chromosome are more likely to be inherited together
+Lipids: a class of macromolecules that are nonpolar and insoluble in water
+Litmus paper: filter paper that has been treated with a natural water-soluble dye so it can be usedas a pH indicator
+Locus: the position of a gene on a chromosome
+Lysosome: an organelle in an animal cell that functions as the cell’s digestive component; itbreaks down proteins, polysaccharides, lipids, nucleic acids, and even worn-out organelles
+Macroevolution: a broader scale of evolutionary changes seen over paleontological time
+Macromolecule: a large molecule typically formed by the joining of smaller molecules
+Mass number: the number of protons plus neutrons in an atom
+Matter: anything that has mass and occupies space
+Meiosis I: the first round of meiotic cell division; referred to as reduction division because theresulting cells are haploid
+Meiosis II: the second round of meiotic cell division following meiosis I; sister chromatids areseparated from each other, and the result is four unique haploid cells
+Mesophyll: the middle layer of cells in a leaf
+Messenger RNA: messenger RNA; a form of RNA that carries the nucleotide sequence code fora protein sequence that is translated into a polypeptide sequence
+Metabolic pathway: a series of related chemical reactions is referred to as a
+Metabolism: all the chemical reactions that take place inside cells, including those that useenergy and those that release energy
+Metaphase plate: the equatorial plane midway between two poles of a cell where thechromosomes align during metaphase
+Metaphase: the stage of mitosis during which chromosomes are lined up at the metaphase plate
+Microevolution: the changes in a population’s genetic structure (i.e., allele frequency)
+Microfilaments: the thinnest of the cytoskeletal fibers and function in moving cellularcomponents and maintaining cell structure
+Microscope: the instrument that magnifies an object
+Microtubules: the thickest fibers that make up the cytoskeleton and can dissolve and reformquickly.
+Migration: the movement of individuals of a population to a new location; in populationgenetics it refers to the movement of individuals and their alleles from one population to another,genetics it refers to the movement of individuals and their alleles from one population to another,potentially changing allele frequencies in both the old and the new population
+Mitochondria: mitochondrion) the cellular organelles responsible for carrying outcellular respiration, resulting in the production of ATP, the cell’s primary energy-carrying
+Gene: the basic unit of heredity; a sequence of DNA that codes for a specific peptide or RNAmolecule
+Mitosis: the period of the cell cycle at which the duplicated chromosomes are separated intoidentical nuclei; includes prophase, prometaphase, metaphase, anaphase, and telophase
+Mitotic phase: the period of the cell cycle when duplicated chromosomes are distributed intotwo nuclei, and the cytoplasmic contents are divided; includes mitosis and cytokinesis
+Mitotic spindle: the microtubule apparatus that orchestrates the movement of chromosomesduring mitosis
+Modern synthesis: the overarching evolutionary paradigm that took shape by the 1940s and isgenerally accepted today
+Molecule: a chemical structure consisting of at least two atoms held together by a chemical bond
+Monohybrid: the result of a cross between two true-breeding parents that express different traitsfor only one characteristic
+Monomers: the single subunits, or building blocks that make up polymers
+Monosaccharide: a single unit or monomer of carbohydrates
+Monosomy: an otherwise diploid genotype in which one chromosome is missing
+Mutation: a permanent variation in the nucleotide sequence of a genome
+Natural selection: the greater relative survival and reproduction of individuals in a populationthat have favorable heritable traits, leading to evolutionary change
+Neutron: a particle with no charge that resides in the nucleus of an atom; has a mass of 1
+Nitrogenous base: a nitrogen-containing molecule that acts as a base; often referring to one ofthe purine or pyrimidine components of nucleic acids
+Noncompetitive inhibition: a general mechanism of enzyme activity regulation in which aregulatory molecule binds to a site other than the active site and prevents the active site fromregulatory molecule binds to a site other than the active site and prevents the active site frombinding the substrate; thus, the inhibitor molecule does not compete with the substrate for theregulatory molecule binds to a site other than the active site and prevents the active site frombinding the substrate; thus, the inhibitor molecule does not compete with the substrate for thebinding the substrate; thus, the inhibitor molecule does not compete with the substrate for theactive site; allosteric inhibition is a form of noncompetitive inhibition
+Nondisjunction: the failure of synapsed homologs to completely separate and migrate toseparate poles during the first cell division of meiosis
+Nonpolar covalent bond: a type of covalent bond that forms between atoms when electrons areshared equally between atoms, resulting in no regions with partial charges as in polar covalentshared equally between atoms, resulting in no regions with partial charges as in polar covalentbonds
+Nuclear envelope: the double-membrane structure that constitutes the outermost portion of the
+Electronegativity: an atom's ability to attract a shared pair of electrons more closely to its ownnucleus
+Nuclear pores: control the passage of ions, molecules, and RNA between the nucleus and thecytoplasm
+Nucleic acid: a biological macromolecule that carries the genetic information of a cell andcarries instructions for the functioning of the cell
+Nucleoid: a central region in a prokaryotic cell where DNA is found
+Nucleolus: the darkly staining body within the nucleus that is responsible for assemblingribosomal subunits
+Nucleotide: monomers of nucleic acids. Consist of a five-carbon sugar, phosphate group, andnitrogenous base
+Nucleus: the cell organelle that houses the cell’s DNA and directs the synthesis of ribosomes andproteins
+Oil: an unsaturated fat that is a liquid at room temperature
+Okazaki fragments: the DNA fragments that are synthesized in short stretches on the laggingstrand
+Orbital: an area where an electron is most likely to be found its
+Organ system: the higher level of organization that consists of functionally related organs
+Organ: a structure formed of tissues operating together to perform a common function
+Organelle: a membrane-bound compartment or sac within a cell
+Organic molecule: any carbon-containing liquid, solid, or gas
+Organism: an individual living entity
+Osmolarity: the total amount of substances dissolved in a specific amount of solution
+Osmosis: the transport of water through a semipermeable membrane from an area of high-waterconcentration to an area of low-water concentration across a membrane. Water also moves fromconcentration to an area of low-water concentration across a membrane. Water also moves froman area of low solutes to an area of high solutes until equilibrium is met.
+Oxidation reaction: a chemical reaction that consists of an electron being donated by an atom
+Oxidative phosphorylation: the production of ATP by the transfer of electrons down theelectron transport chain to create a proton gradient that is used by ATP synthase to addelectron transport chain to create a proton gradient that is used by ATP synthase to addphosphate groups to ADP molecules
+P: the parental generation in a cross
+Passive transport: a method of transporting material that does not require energy
+Pedigree: to chart used to study inheritance patterns of genetic characteristics
+Peer-reviewed article: a scientific report that is reviewed by a scientist’s colleagues beforepublication
+Peptide bond: a covalent bond that exists between the amino group of one amino acid and thecarboxyl group of a second amino acidcarboxyl group of a second amino acidXVI Return to Table of Contents
+Periodic table of elements: an organizational chart of elements, indicating the atomic numberand mass number of each element; also provides key information about the properties ofand mass number of each element; also provides key information about the properties ofelements
+Peripheral protein: protein at the plasma membrane's surface either on its exterior or interiorside
+Peroxisome: a small, round organelle that contains hydrogen peroxide, oxidizes fatty acids andamino acids and detoxifies many poisons
+PH scale: a scale ranging from 0 to 14 that measures the approximate concentration of hydrogen ions of a substance
+Phagocytosis: a process that takes macromolecules that the cell needs from the extracellular fluid; a variation of endocytosis
+Phenotype: the observable traits expressed by an organism
+Phospholipid: a major constituent of the membranes of cells; composed of two fatty acids and a phosphate group attached to the glycerol backbone
+Phosphorylation: addition of a high-energy phosphate to a molecule, usually a metabolic intermediate, a protein, or ADP
+Photoautotroph: an organism capable of synthesizing its own food molecules (storing energy), using the energy of light
+Photon: a distinct quantity or “packet” of light energy
+Photorespiration: when oxygen is in a higher concentration than carbon dioxide, rubisco will fix oxygen to RuBP
+Photosynthesis: a multi-step chemical reaction that requires light energy, carbon dioxide, and water and produces sugar and oxygen
+Photosystem: a group of proteins, chlorophyll, and other pigments that are used in the light-dependent reactions of photosynthesis to absorb light energy and convert it into chemical energy
+Phylogenetic tree: a diagram showing the evolutionary relationships among biological species based on similarities and differences in genetic or physical traits or both
+Pigment: a molecule that is capable of absorbing light energy
+Pinocytosis: a process that takes solutes that the cell needs from the extracellular fluid; a variation of endocytosis
+Plasma membrane: a phospholipid bilayer with embedded (integral) or attached (peripheral)proteins that separates the internal contents of the cell from its surrounding environment
+Plasmodesma: plasmodesmata) A channel that passes between the cell walls of adjacent plant cells, connects their cytoplasm and allows materials to be transported from cell to cell
+Pleiotropy: describes when one gene controls two or more different characteristics
+Point mutation: occur when a single nucleotide is permanently changed in the DNA sequence
+Polar covalent bond: a type of covalent bond in which electrons are pulled toward one atom and away from another, resulting in slightly positive and slightly negative charged regions of the
+Gene: the basic unit of heredity; a sequence of DNA that codes for a specific peptide or RNA molecule
+Polygenic inheritance: describes when each gene that an individual inherits has a small additive effect on the overall phenotype
+Polymers: larger molecules that are formed by combining monomers using covalent bonds
+Polypeptide chain: a long chain of amino acids linked by peptide bonds
+Polyploid: an individual with an incorrect number of chromosome sets
+Polysaccharide: a long chain of monosaccharides; may be branched or unbranched
+Population genetics: the study of how selective forces change the allele frequencies in a population over time
+Population: all individuals within a species living within a specific area
+Potential energy: the type of energy that refers to the potential to do work
+Predictions: statements that describe what should happen if the hypothesis is supported
+Primary structure: a linear sequence of amino acids in a protein
+Products: the substances that are formed at the end of a chemical reaction (usually on the right side of a chemical equation
+Prokaryote: a unicellular organism that lacks a nucleus or any other membrane-bound organelle
+Prometaphase: the stage of mitosis during which mitotic spindle fibers attach to kinetochores
+Promoter: a sequence on DNA to which RNA polymerase and associated factors bind and initiate transcription
+Prophase: the stage of mitosis during which chromosomes condense and the mitotic spindle begins to form
+Protein: a biological macromolecule composed of one or more chains of amino acids
+Proton: a positively charged particle that resides in the nucleus of an atom; has a mass of 1 and a charge of +1
+Pseudoscience: claims or beliefs that are portrayed as scientific fact but cannot be evaluated using the scientific method
+Punnett square: a visual representation of a cross between two individuals in which the gametes of each individual are denoted along the top and side of a grid, respectively, and the possible of each individual are denoted along the top and side of a grid, respectively, and the possible zygotic genotypes are recombined at each box in the grid
+Qualitative data: data that is descriptive
+Quantitative data: data that is numerical
+Quaternary structure: association of different polypeptide chains in a protein
+Radioactive isotope: an isotope that spontaneously emits particles or energy to form a more stable element
+Reactants: the substances used at the beginning of a chemical reaction (usually on the left side of a chemical equation)
+Reactivity: the ability of elements to combine and chemically bond with each other
+Receptor-mediated endocytosis: a variant of endocytosis that involves the use of specific binding proteins in the plasma membrane for specific molecules or particles
+Recessive: describes a trait whose expression is masked by another trait when the alleles for both traits are present in an individual
+Redox reaction: a chemical reaction that consists of the coupling of an oxidation reaction and a reduction reaction
+Reduction reaction: a chemical reaction that consists of an electron being gained by an atom
+Replication fork: the Y-shaped structure formed during the initiation of replication
+Ribonucleic acid (RNA): a single-stranded polymer of nucleotides that are involved in protein synthesis
+Ribose: a five-carbon sugar molecule with a hydroxyl group in the 2' position; the sugar component of RNA nucleotides
+Ribosomal RNA (rRNA): ribosomal RNA; molecules of RNA that combine to form part of the ribosome
+RNA polymerase: an enzyme that synthesizes an RNA strand from a DNA template strand
+RNA primase: an enzyme that can base pair with the DNA and add a short stretch of RNA nucleotides called a primer. The primer is required to initiate DNA replication
+RNA primer: a short sequence of RNA nucleotides to which DNA polymerase can add DNA nucleotides to
+Rough endoplasmic reticulum (RER): the region of the endoplasmic reticulum that is studded with ribosomes and engages in protein modification
+Haploid: describes a cell, nucleus, or organism containing one set of chromosomes (n)
+Hardy-Weinberg equilibrium: a principle that states a population’s allele and genotype frequencies are inherently stable unless evolutionary force(s) is acting on the population
+Heat energy: the energy transferred from one system to another that is not work
+Helicase: an enzyme that helps to open up the DNA helix during DNA replication by breaking hydrogen bonds
+Heterotroph: an organism that consumes other organisms for food
+Heterozygous: having two different alleles for a given gene on the homologous chromosomes
+Homeostasis: the ability of an organism to maintain constant internal conditions
+Homologous chromosomes: the randomness of how the homologous chromosome pairs align at the metaphase plate during metaphase I of meiosis I
+Homologous structure: a structure that is similar because of descent from a common ancestor
+Homozygous: having two identical alleles for a given gene on the homologous chromosomes
+Hormone: a chemical signaling molecule, usually a protein or steroid, secreted by an endocrine gland or group of endocrine cells; acts to control or regulate specific physiological processes
+Hybridization/cross-fertilization: the process of mating two individuals that differ, to achieve certain characteristics in their offspring
+Hydrocarbon: organic molecules consisting entirely of carbon and hydrogen
+Hydrogen bond: a weak bond between partially positively charged hydrogen atoms and partially negatively charged elements or molecules
+Hydrolysis reactions: a reaction where a water molecule (and usually an enzyme) is used to break a chemical bond within a polymer
+Hydrophilic: describes a substance that dissolves in water; water-loving
+Hydrophobic: describes a substance that does not dissolve in water; water-fearing
+Hypertonic: describes a solution in which extracellular fluid has a higher osmolarity than the fluid inside the cell
+Hypothesis: a testable explanation to a scientific question
+Hypotonic: describes a solution in which extracellular fluid has a lower osmolarity than the fluid inside the cell
+S phase: the second, or synthesis phase, of interphase during which DNA replication occurs
+Saturated fatty acid: a long-chain hydrocarbon with single covalent bonds in the carbon chain; the number of hydrogen atoms attached to the carbon skeleton is maximized
+Science: the knowledge that covers general truths or the operation of general laws, mainly when acquired and tested by the scientific method
+Scientific method: a method of research with defined steps that include experiments and careful observation
+Scientific theory: a thoroughly tested and confirmed explanation for observations or phenomena
+Second law of thermodynamics: states that every energy transfer or transformation increases the universe's entropy
+Secondary structure: structure that proteins form by hydrogen bonding between the oxygen atom of one amino acid, and the hydrogen attached to the nitrogen atom of another amino acid
+Selectively permeable: the characteristic of a membrane that allows some substances through but not others 
+Semiconservative replication: the method used to replicate DNA in which the double-stranded molecule is separated, and each strand acts as a template for a new strand to be synthesized, so the resulting DNA molecules are composed of one new strand of nucleotides and one old strand of nucleotides
+Septum: a partition formed between two bacterial daughter cells
+Sexual reproduction: requires that two different gametes (egg and sperm) come together to form a zygote
+Simple diffusion: a process where solutes move directly through the membrane from an area of high concentration to an area of low concentration until equilibrium is met
+Sister chromatids: two identical chromosomes attached to one another at a location called the centromere region
+Smooth endoplasmic reticulum (SER): the region of the endoplasmic reticulum that has few or no ribosomes on its cytoplasmic surface and synthesizes carbohydrates, lipids, and steroid hormones; detoxifies chemicals like pesticides, preservatives, medications, and environmental pollutants, and stores calcium ions
+Solute: a substance being dissolved in another to form a solution
+Solution: a homogeneous mixture made of two or more components
+Solvent: a substance capable of dissolving another substance
+Somatic cell: all the cells of a multicellular organism except the gamete-forming cells
+Speciation: a formation of a new species
+Sperm: the male gamete; a haploid cell
+Spliceosome: a structure composed of various proteins and other molecules, which attaches to the mRNA transcript and “splices” or cuts out the non-coding, introns
+Splicing: the process of removing introns and reconnecting exons in a pre-mRNA
+Standardized variable: variables that must be kept consistent otherwise, they can affect the outcome or results of the experiment
+Starch: a storage carbohydrate in plants
+Start codon: the AUG (or, rarely, GUG) on an mRNA from which translation begins; always specifies methionine
+Steroid: a type of lipid composed of four fused hydrocarbon rings
+Stoma: the opening that regulates gas exchange and water regulation between leaves and the environment
+Stop codon: one of the three mRNA codons that specifies termination of translation
+Stroma: the fluid-filled space surrounding the grana inside a chloroplast where the Calvin cycle reactions of photosynthesis take place
+Substrate-level phosphorylation: production of ATP from ADP using the excess energy from a chemical reaction and a phosphate group from a reactant
+Substrate: a reactant that binds to a specific enzyme
+Surface tension: the cohesive force at the surface of a body of liquid that prevents the molecules from separating
+Sympatric speciation: speciation that occurs in the same geographic space
+Telomerase: an enzyme that contains a catalytic part and an inbuilt RNA template; it functions to maintain telomeres at chromosome ends
+Telomere: the DNA at the end of linear chromosomes
+Telophase: the stage of mitosis during which chromosomes arrive at opposite poles, decondense, and are surrounded by new nuclear envelopes
+Temperature: a measure of molecular motion
+Tertiary structure: a protein's three-dimensional conformation, including interactions between secondary structural elements
+Tetrad: two duplicated homologous chromosomes (four chromatids) bound together by chiasmata during prophase I
+Theory: a thoroughly tested and confirmed explanation for observations or phenomena
+Thermodynamics: the science of the relationships between heat, energy, and work
+Thylakoid: a disc-shaped membranous structure inside a chloroplast where the light-dependent reactions of photosynthesis take place using chlorophyll embedded in the membranes
+Tight junction: a firm seal between two adjacent animal cells created by protein adherence
+Tissue: a group of similar cells carrying out the same function
+Tonicity: the amount of solute in a solution
+Trait: a variation in an inherited characteristic
+Trans-fat: a form of unsaturated fat with the hydrogen atoms neighboring the double bond across from each other rather than on the same side of the double bond
+Transcription bubble: the region of locally unwound DNA that allows for transcription of mRNA
+Transcription: the process of making mRNA from DNA
+Transfer RNA (tRNA): transfer RNA; is an RNA molecule that contains a specific three- nucleotide anticodon sequence to pair with the mRNA codon and also binds to a particular amino acid
+Translation: process of making a protein from the nucleotide sequence code of an mRNA transcript
+Translocation: the process by which one segment of a chromosome dissociates and reattaches to a different, nonhomologous chromosome
+Triglyceride: a fat molecule; consists of three fatty acids linked to a glycerol molecule
+Trisomy: an otherwise diploid genotype in which one entire chromosome is duplicated
+Unsaturated fatty acid: a long-chain hydrocarbon that has one or more than one double bonds in the hydrocarbon chain
+Vacuole: a membrane-bound sac, somewhat larger than a cyst, that functions in cellular storage and transport
+Valence shell: the outermost electron shell
+Variants: genotypes or phenotypes that deviate from the wild type
+Variation: the variety of alleles in a population
+Vesicle: a small, membrane-bound sac that functions in cellular storage and transport; its membrane is capable of fusing with the plasma membrane and the membranes of the endoplasmic reticulum and Golgi apparatus
+Vestigial structure: a physical structure present in an organism but that has no apparent function and appears to be from a functional structure in a distant ancestor
+Wavelength: the distance between consecutive points of a wave
+Waxes: a type of lipid made up of a hydrocarbon chain with an alcohol (–OH) group and a fatty acid
+Wild type: the most commonly occurring genotype or phenotype for a given characteristic found in a population
+X (sex)-linked: pattern of inheritance in which an allele is carried on the X chromosome of the 23rd pair
+X-linked dominant inheritance: pattern of dominant inheritance that corresponds to a gene on the X chromosome of the 23rd pair
+Zygote: a fertilized egg produced when a sperm and egg fuse
