@@ -1,4 +1,4 @@
-# Hanging_Man_Repository.
+# Hanging_Man
 
 Hangman is a classic word-guessing game. The game is typically played by two or more players, where one player thinks of a secret word, and the other player(s) tries to guess the word by suggesting letters one at a time. In this project, the computer (Bot) will ask a user to guess the word.
 
