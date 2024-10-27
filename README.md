@@ -12,14 +12,14 @@ No statistics will be revealed in the game. The game would only prompt you if yo
 
 # Rules of the Game
 The game proceeds as follows:
--**• The user will be displayed with a graphical user interface for the game. Initially, the
+- The user will be displayed with a graphical user interface for the game. Initially, the
 guessing word is masked, gallows, and the keyboard is displayed.
--**• The user is supposed to guess the word and is allowed to click a letter.
--**• If the user guesses the correct letter, then the correct letter is unmasked from the masked
+- The user is supposed to guess the word and is allowed to click a letter.
+- If the user guesses the correct letter, then the correct letter is unmasked from the masked
 letter.
--**• There are four chances given to guess the masked word correctly. A hint will be provided
+- There are four chances given to guess the masked word correctly. A hint will be provided
 on the third failed attempt to guess the word correctly. Please get the word in four accurate shots to avoid a loss for the game. And it will pop you a button either to try again or quit.
--**• If the user clicks the try button again, then the user will be given a chance to play again.
+- If the user clicks the try button again, then the user will be given a chance to play again.
 
 
 # Acknowledgment
