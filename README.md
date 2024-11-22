@@ -21,6 +21,12 @@ letter.
 on the third failed attempt to guess the word correctly. Please get the word in four accurate shots to avoid a loss for the game. And it will pop you a button either to try again or quit.
 - If the user clicks the try button again, then the user will be given a chance to play again.
 
+# Visuals
+<img width="602" alt="Screenshot 2024-11-21 at 11 20 55 PM" src="https://github.com/user-attachments/assets/9011b0c3-59e7-42e0-bee0-6a7300010693">
+<img width="602" alt="Screenshot 2024-11-21 at 11 21 18 PM" src="https://github.com/user-attachments/assets/66a955c0-095e-470f-bc61-8f82cfc89d2f">
+<img width="602" alt="Screenshot 2024-11-21 at 11 22 52 PM" src="https://github.com/user-attachments/assets/792366df-f451-483d-903a-326434b48a83">
+<img width="600" alt="Screenshot 2024-11-21 at 11 24 05 PM" src="https://github.com/user-attachments/assets/4cee840b-3a6f-421d-bcc6-979684f3896f">
+
 
 # Acknowledgment
 I would like to thank Professor Aana Varvak for her invaluable guidance. I would also like to thank the authors of "Python Programming: An Introduction to Computer
