@@ -34,7 +34,6 @@ Science ISBN: 9781590282755 and OpenStax for their valuable contributions to my 
 
 Note: This project was submitted for the Introduction to Computer Science(MATH121)(2023), Soka University of America.
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
