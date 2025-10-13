@@ -36,5 +36,8 @@ Note: This project was submitted for the Introduction to Computer Science(MATH12
 
 # Want to Play? Click on Play Now Button.
 [![Play Online](https://img.shields.io/badge/Play-Now-brightgreen)](https://anupparajuli01.github.io/Biology_Hanging_Man/BiologyHangingMan.html)
-[Go to Repository](https://github.com/Anupparajuli01/Biology_Hanging_Man)
+
+
+[Go to Repository](https://github.com/anupparajuli01/Biology_Hanging_Man)
+
 
