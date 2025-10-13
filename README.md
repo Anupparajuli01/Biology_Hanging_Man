@@ -34,6 +34,6 @@ Science ISBN: 9781590282755 and OpenStax for their valuable contributions to my 
 
 Note: This project was submitted for the Introduction to Computer Science(MATH121)(2023), Soka University of America.
 
-# Want to Play? Click on Play Now Button. (Just Incase: It is Keyboard Responsive too)
+# Want to Play? Click on Play Now Button.
 [![Play Online](https://img.shields.io/badge/Play-Now-brightgreen)](https://anupparajuli01.github.io/Biology_Hanging_Man/BiologyHangingMan.html)
 
