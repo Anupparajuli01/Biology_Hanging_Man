@@ -1,390 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hangman Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f0f0;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biology Vocabulary Hangman</title>
+  <style>
+    :root {
+      --card-bg: #ffffff;
+      --muted: #6b7280;
+      --accent: #4caf50;
+      --danger: #ef4444;
+      --ink: #111827;
+      --bg: #f3f4f6;
+      --ring: rgba(0,0,0,0.08);
+    }
 
-        .game-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            max-width: 800px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      margin: 0; padding: 20px;
+      display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+    }
 
-        .word-display {
-            font-size: 2em;
-            letter-spacing: 5px;
-            margin: 20px 0;
-            text-align: center;
-            min-height: 50px;
-        }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-        .hint-display {
-            color: red;
-            margin: 20px 0;
-            text-align: center;
-            font-size: 0.9em;
-            max-width: 600px;
-            min-height: 60px;
-            padding: 10px;
-        }
+    .wrap {
+      width: 100%;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+    }
+    @media (max-width: 980px) { .wrap { grid-template-columns: 1fr; } }
 
-        .keyboard {
-            display: grid;
-            grid-template-rows: repeat(3, 1fr);
-            gap: 5px;
-            margin: 20px 0;
-        }
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 2px 20px var(--ring);
+      padding: 16px;
+    }
 
-        .keyboard-row {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
+    .game-container { display: flex; flex-direction: column; align-items: center; }
+    .hangman-container {
+      border: 1px solid #e5e7eb; border-radius: 10px;
+      width: 400px; height: 400px; position: relative; overflow: hidden;
+    }
+    canvas { display: block; }
 
-        .key {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background-color: white;
-            font-weight: bold;
-        }
+    .word-display {
+      font-size: 2rem; letter-spacing: 6px; margin: 14px 0 6px; text-align: center; min-height: 48px;
+    }
+    .hint-display {
+      color: #b91c1c; margin: 8px 0 12px; text-align: center; font-size: 0.95rem;
+      max-width: 640px; min-height: 44px; padding: 6px;
+    }
 
-        .key.disabled {
-            background-color: #ddd;
-            cursor: not-allowed;
-            color: #999;
-        }
+    .keyboard { display: grid; gap: 6px; margin: 10px 0 0; }
+    .keyboard-row { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
+    .key {
+      width: 40px; height: 40px; border: 1px solid #e5e7eb; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      background: white; font-weight: 700; transition: transform .05s ease;
+    }
+    .key:hover { transform: translateY(-1px); }
+    .key.disabled { background: #e5e7eb; cursor: not-allowed; color: #9ca3af; }
 
-        .hangman-container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin: 20px 0;
-            width: 400px;
-            height: 400px;
-            position: relative;
-        }
+    #game-over {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.35); z-index: 1000; padding: 16px;
+    }
+    .dialog {
+      background: #fff; border-radius: 16px; max-width: 480px; width: 100%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2); padding: 20px; text-align: center;
+    }
 
-        #game-over {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            display: none;
-            text-align: center;
-            z-index: 1000;
-        }
+    .button {
+      padding: 10px 16px; margin: 8px; border: none; border-radius: 8px; cursor: pointer;
+      background: var(--accent); color: white; font-size: 1rem; font-weight: 700;
+    }
+    .button.secondary { background: #111827; }
+    .button.ghost { background: #f3f4f6; color: #111827; }
+    .button.danger { background: var(--danger); }
 
-        .button {
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 1em;
-        }
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .small { color: var(--muted); font-size: 0.9rem; }
 
-        .button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 14px;
+    }
+    @media (max-width: 520px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .stat {
+      background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 12px; text-align: center;
+    }
+    .stat .label { color: #6b7280; font-size: 0.8rem; margin-bottom: 3px; }
+    .stat .value { font-size: 1.25rem; font-weight: 800; }
+
+    footer { margin-top: 12px; color: var(--muted); font-size: 0.9rem; }
+  </style>
 </head>
 <body>
-    <p align="center">This is a web-based version of the Biology Hanging Man. Please visit the <a href="https://github.com/Anupparajuli01/Biology_Hanging_Man">Repository</a> for executible python file. </p>
-    <p align = "center"> Link to Repository: <a href ="https://github.com/Anupparajuli01/Biology_Hanging_Man">https://github.com/Anupparajuli01/Biology_Hanging_Man </a> </p> 
-    <p align="center"> Rules of the game: <a href="https://anupparajuli01.github.io/Biology_Hanging_Man/">https://anupparajuli01.github.io/Biology_Hanging_Man/</a></p>
-    <p align = "center"> This web-based version is also keyboard responsive. Happy Learning Biological Keywords.</p>
-    <div class="game-container">
+  <p align="center">
+    This is a web-based version of the Biology Hanging Man.
+    Repository
+    <a href="https://github.com/Anupparajuli01/Biology_Hanging_Man">link</a> •
+    Rules
+    <a href="https://anupparajuli01.github.io/Biology_Hanging_Man/">link</a>
+  </p>
+
+  <div class="wrap">
+    <!-- Left: Game -->
+    <div class="card">
+      <div class="toolbar">
+        <div class="small">Keyboard enabled — type letters or click buttons</div>
+        <div>
+          <button class="button ghost" id="newWord">New Word</button>
+        </div>
+      </div>
+
+      <div class="game-container">
         <div class="hangman-container">
-            <canvas id="hangmanCanvas" width="400" height="400"></canvas>
+          <canvas id="hangmanCanvas" width="400" height="400"></canvas>
         </div>
         <div class="word-display" id="wordDisplay"></div>
         <div class="hint-display" id="hintDisplay"></div>
+
         <div class="keyboard">
-            <div class="keyboard-row" id="row1">
-                <button class="key">Q</button>
-                <button class="key">W</button>
-                <button class="key">E</button>
-                <button class="key">R</button>
-                <button class="key">T</button>
-                <button class="key">Y</button>
-                <button class="key">U</button>
-                <button class="key">I</button>
-                <button class="key">O</button>
-                <button class="key">P</button>
-            </div>
-            <div class="keyboard-row" id="row2">
-                <button class="key">A</button>
-                <button class="key">S</button>
-                <button class="key">D</button>
-                <button class="key">F</button>
-                <button class="key">G</button>
-                <button class="key">H</button>
-                <button class="key">J</button>
-                <button class="key">K</button>
-                <button class="key">L</button>
-            </div>
-            <div class="keyboard-row" id="row3">
-                <button class="key">Z</button>
-                <button class="key">X</button>
-                <button class="key">C</button>
-                <button class="key">V</button>
-                <button class="key">B</button>
-                <button class="key">N</button>
-                <button class="key">M</button>
-            </div>
+          <div class="keyboard-row" id="row1">
+            <button class="key">Q</button><button class="key">W</button><button class="key">E</button>
+            <button class="key">R</button><button class="key">T</button><button class="key">Y</button>
+            <button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
+          </div>
+          <div class="keyboard-row" id="row2">
+            <button class="key">A</button><button class="key">S</button><button class="key">D</button>
+            <button class="key">F</button><button class="key">G</button><button class="key">H</button>
+            <button class="key">J</button><button class="key">K</button><button class="key">L</button>
+          </div>
+          <div class="keyboard-row" id="row3">
+            <button class="key">Z</button><button class="key">X</button><button class="key">C</button>
+            <button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button>
+          </div>
         </div>
+      </div>
     </div>
-    
 
-    <div id="game-over">
-        <h2 id="result-text"></h2>
+    <!-- Right: Analytics -->
+    <div class="card">
+      <div class="toolbar">
+        <strong>Game Analytics</strong>
+        <div>
+          <button class="button ghost" id="resetStats">Reset Stats</button>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat"><div class="label">Games Played</div><div class="value" id="sPlayed">0</div></div>
+        <div class="stat"><div class="label">Wins</div><div class="value" id="sWins">0</div></div>
+        <div class="stat"><div class="label">Losses</div><div class="value" id="sLosses">0</div></div>
+        <div class="stat"><div class="label">Win Rate</div><div class="value" id="sWinRate">0%</div></div>
+        <div class="stat"><div class="label">Current Streak</div><div class="value" id="sStreak">0</div></div>
+        <div class="stat"><div class="label">Avg Wrong Guesses</div><div class="value" id="sAvgWrong">0.0</div></div>
+      </div>
+
+      <canvas id="statsChart" width="480" height="260" aria-label="Wins vs Losses Bar Chart"></canvas>
+      <div class="small" style="margin-top:6px">
+        Stats persist locally via browser storage. Use Reset to clear.
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="game-over">
+    <div class="dialog">
+      <h2 id="result-text" style="margin-top:0"></h2>
+      <p class="small" id="result-sub"></p>
+      <div>
         <button class="button" id="playAgain">Play Again</button>
-        <button class="button" id="quit">Quit</button>
+        <button class="button secondary" id="revealWord">Reveal Word</button>
+        <button class="button danger" id="quit">Quit</button>
+      </div>
     </div>
-    <footer>
-      <p>&copy; 2025 Anup Parajuli. All rights reserved.</p>
-    </footer>
+  </div>
 
+  <footer>
+    <p>&copy; 2025 Anup Parajuli. All rights reserved.</p>
+  </footer>
 
-    <script>
-        class HangmanGame {
-            constructor() {
-                // Sample data format from fnl.txt (will be loaded from file in production)
-                this.gameData = [
-                    "word1: This is hint 1",
-                    "complex word or phrase: This is a longer hint that explains the word",
-                    // ... more entries would be loaded from fnl.txt
-                ];
-                
-                this.canvas = document.getElementById('hangmanCanvas');
-                this.ctx = this.canvas.getContext('2d');
-                this.wordDisplay = document.getElementById('wordDisplay');
-                this.hintDisplay = document.getElementById('hintDisplay');
-                this.errorCount = 0;
-                this.maxErrors = 4;
-                
-                // Load the game data
-                this.loadGameData().then(() => {
-                    this.initGame();
-                    this.setupKeyboard();
-                    this.setupKeyboardInput();
-                });
-            }
+  <script>
+    /********************
+     * Analytics Store  *
+     ********************/
+    const DEFAULT_STATS = {
+      played: 0,
+      wins: 0,
+      losses: 0,
+      streak: 0,            // positive for win streak, negative for loss streak
+      totalWrong: 0,        // sum of wrong guesses across games
+      totalDurationMs: 0    // optional if you want to show average time later
+    };
 
-            async loadGameData() {
-                try {
-                    const response = await fetch('fnl.txt');
-                    const text = await response.text();
-                    this.gameData = text.split('\n').filter(line => line.trim());
-                } catch (error) {
-                    console.error('Error loading game data:', error);
-                    // Keep using sample data if file load fails
-                }
-            }
+    const STATS_KEY = "bioHangman_stats_v1";
 
-            initGame() {
-                const randomIndex = Math.floor(Math.random() * this.gameData.length);
-                const line = this.gameData[randomIndex];
-                const [word, hint] = line.split(':').map(str => str.trim());
-                
-                this.currentWord = word.toUpperCase();
-                this.currentHint = hint;
-                this.maskedWord = this.maskWord(word);
-                this.hintDisplay.textContent = '';  // Start with no hint
-                this.wordDisplay.textContent = this.maskedWord;
-                this.errorCount = 0;
-                this.drawGallows();
-                this.enableAllKeys();
-            }
+    function loadStats() {
+      try {
+        const raw = localStorage.getItem(STATS_KEY);
+        return raw ? { ...DEFAULT_STATS, ...JSON.parse(raw) } : { ...DEFAULT_STATS };
+      } catch { return { ...DEFAULT_STATS }; }
+    }
+    function saveStats(s) { localStorage.setItem(STATS_KEY, JSON.stringify(s)); }
 
-            maskWord(word) {
-                return word.split('').map(char => {
-                    if (char === ' ' || char === '-' || char === ',' || char === "'" || 
-                        char === '.' || char === ';' || char === '(' || char === ')') {
-                        return char;
-                    }
-                    return '~';
-                }).join('');
-            }
+    function recordGameResult({ won, wrongGuesses, durationMs }) {
+      const s = loadStats();
+      s.played += 1;
+      if (won) {
+        s.wins += 1;
+        s.streak = s.streak >= 0 ? s.streak + 1 : 1;  // reset if negative
+      } else {
+        s.losses += 1;
+        s.streak = s.streak <= 0 ? s.streak - 1 : -1;
+      }
+      s.totalWrong += wrongGuesses;
+      if (Number.isFinite(durationMs)) s.totalDurationMs += durationMs;
+      saveStats(s);
+      renderStats();
+    }
 
-            setupKeyboard() {
-                document.querySelectorAll('.key').forEach(key => {
-                    key.addEventListener('click', () => this.handleKeyClick(key));
-                });
+    function resetStats() {
+      saveStats({ ...DEFAULT_STATS });
+      renderStats();
+    }
 
-                document.getElementById('playAgain').addEventListener('click', () => {
-                    document.getElementById('game-over').style.display = 'none';
-                    this.initGame();
-                });
+    function renderStats() {
+      const s = loadStats();
+      const played = s.played;
+      const wins = s.wins;
+      const losses = s.losses;
+      const winRate = played ? Math.round((wins / played) * 100) : 0;
+      const avgWrong = played ? (s.totalWrong / played).toFixed(1) : "0.0";
 
-                document.getElementById('quit').addEventListener('click', () => {
-                    window.close();
-                });
-            }
+      document.getElementById("sPlayed").textContent = played;
+      document.getElementById("sWins").textContent = wins;
+      document.getElementById("sLosses").textContent = losses;
+      document.getElementById("sWinRate").textContent = winRate + "%";
+      document.getElementById("sStreak").textContent = s.streak;
+      document.getElementById("sAvgWrong").textContent = avgWrong;
 
-            setupKeyboardInput() {
-                document.addEventListener('keydown', (event) => {
-                    const key = event.key.toUpperCase();
-                    if (/^[A-Z]$/.test(key)) {
-                        const keyElement = Array.from(document.querySelectorAll('.key'))
-                            .find(k => k.textContent === key && !k.classList.contains('disabled'));
-                        if (keyElement) {
-                            this.handleKeyClick(keyElement);
-                        }
-                    }
-                });
-            }
+      drawBarChart("statsChart", wins, losses);
+    }
 
-            handleKeyClick(key) {
-                if (key.classList.contains('disabled')) return;
-                
-                const letter = key.textContent;
-                key.classList.add('disabled');
-                
-                if (this.currentWord.includes(letter)) {
-                    this.updateMaskedWord(letter);
-                } else {
-                    this.errorCount++;
-                    this.drawHangman();
-                    
-                    // Show hint after 3 incorrect attempts
-                    if (this.errorCount === 3) {
-                        this.hintDisplay.textContent = `Hint: ${this.currentHint}`;
-                    }
-                }
+    /********************
+     * Simple Bar Chart *
+     ********************/
+    function drawBarChart(canvasId, wins, losses) {
+      const c = document.getElementById(canvasId);
+      const ctx = c.getContext("2d");
+      const W = c.width, H = c.height;
+      ctx.clearRect(0,0,W,H);
 
-                this.checkGameEnd();
-            }
+      // axes
+      const pad = 40;
+      ctx.strokeStyle = "#9ca3af";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(pad, H - pad);
+      ctx.lineTo(W - pad, H - pad); // x
+      ctx.moveTo(pad, H - pad);
+      ctx.lineTo(pad, pad);         // y
+      ctx.stroke();
 
-            updateMaskedWord(letter) {
-                let newMasked = '';
-                for (let i = 0; i < this.currentWord.length; i++) {
-                    if (this.currentWord[i] === letter) {
-                        newMasked += letter;
-                    } else {
-                        newMasked += this.maskedWord[i];
-                    }
-                }
-                this.maskedWord = newMasked;
-                this.wordDisplay.textContent = this.maskedWord;
-            }
+      const maxVal = Math.max(5, wins, losses); // avoid zero scale
+      const barW = 80;
+      const gap = 60;
+      const baseY = H - pad;
 
-            enableAllKeys() {
-                document.querySelectorAll('.key').forEach(key => {
-                    key.classList.remove('disabled');
-                });
-            }
+      function bar(x, y, w, h, fill) {
+        ctx.fillStyle = fill;
+        ctx.fillRect(x, y, w, h);
+        ctx.strokeStyle = "rgba(0,0,0,0.08)";
+        ctx.strokeRect(x, y, w, h);
+      }
 
-            checkGameEnd() {
-                if (this.errorCount >= this.maxErrors || !this.maskedWord.includes('~')) {
-                    const gameOver = document.getElementById('game-over');
-                    const resultText = document.getElementById('result-text');
-                    
-                    if (this.errorCount >= this.maxErrors) {
-                        resultText.textContent = 'You Lost!';
-                    } else {
-                        resultText.textContent = 'You Won!';
-                    }
-                    
-                    this.wordDisplay.textContent = this.currentWord;
-                    gameOver.style.display = 'block';
-                }
-            }
+      // y ticks
+      ctx.fillStyle = "#6b7280";
+      ctx.font = "12px system-ui, sans-serif";
+      const ticks = 5;
+      for (let i=0; i<=ticks; i++) {
+        const v = Math.round((maxVal * i) / ticks);
+        const yy = baseY - ( (H - 2*pad) * (i / ticks) );
+        ctx.fillText(String(v), 8, yy + 4);
+        ctx.strokeStyle = "rgba(0,0,0,0.05)";
+        ctx.beginPath();
+        ctx.moveTo(pad, yy);
+        ctx.lineTo(W - pad, yy);
+        ctx.stroke();
+      }
 
-            drawGallows() {
-                this.ctx.clearRect(0, 0, 400, 400);
-                this.ctx.strokeStyle = 'black';
-                this.ctx.lineWidth = 2;
-                
-                // Base
-                this.ctx.beginPath();
-                this.ctx.moveTo(100, 350);
-                this.ctx.lineTo(300, 350);
-                this.ctx.stroke();
-                
-                // Vertical pole
-                this.ctx.beginPath();
-                this.ctx.moveTo(200, 350);
-                this.ctx.lineTo(200, 100);
-                this.ctx.stroke();
-                
-                // Horizontal beam
-                this.ctx.beginPath();
-                this.ctx.moveTo(200, 100);
-                this.ctx.lineTo(300, 100);
-                this.ctx.stroke();
-                
-                // Rope
-                this.ctx.beginPath();
-                this.ctx.moveTo(300, 100);
-                this.ctx.lineTo(300, 120);
-                this.ctx.stroke();
-            }
+      // bars
+      const totalBarArea = 2*barW + gap;
+      const startX = pad + (W - 2*pad - totalBarArea)/2;
 
-            drawHangman() {
-                switch(this.errorCount) {
-                    case 1: // Head
-                        this.ctx.beginPath();
-                        this.ctx.arc(300, 140, 20, 0, Math.PI * 2);
-                        this.ctx.stroke();
-                        break;
-                    case 2: // Body
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(300, 160);
-                        this.ctx.lineTo(300, 240);
-                        this.ctx.stroke();
-                        break;
-                    case 3: // Arms
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(300, 180);
-                        this.ctx.lineTo(270, 200);
-                        this.ctx.moveTo(300, 180);
-                        this.ctx.lineTo(330, 200);
-                        this.ctx.stroke();
-                        break;
-                    case 4: // Legs
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(300, 240);
-                        this.ctx.lineTo(270, 280);
-                        this.ctx.moveTo(300, 240);
-                        this.ctx.lineTo(330, 280);
-                        this.ctx.stroke();
-                        break;
-                }
-            }
+      const winsH = (wins / maxVal) * (H - 2*pad);
+      const lossesH = (losses / maxVal) * (H - 2*pad);
+
+      bar(startX, baseY - winsH, barW, winsH, "#22c55e");
+      bar(startX + barW + gap, baseY - lossesH, barW, lossesH, "#ef4444");
+
+      // labels
+      ctx.fillStyle = "#111827";
+      ctx.font = "bold 13px system-ui, sans-serif";
+      ctx.fillText("Wins", startX + barW/2 - 18, H - pad + 18);
+      ctx.fillText("Losses", startX + barW + gap + barW/2 - 26, H - pad + 18);
+
+      // values on top
+      ctx.fillStyle = "#111827";
+      ctx.font = "bold 14px system-ui, sans-serif";
+      ctx.fillText(String(wins), startX + barW/2 - 6, baseY - winsH - 8);
+      ctx.fillText(String(losses), startX + barW + gap + barW/2 - 8, baseY - lossesH - 8);
+    }
+
+    /********************
+     * Hangman Game     *
+     ********************/
+    class HangmanGame {
+      constructor() {
+        this.gameData = [
+          "DNA: The molecule that carries genetic information",
+          "mitochondrion: Organelle that produces energy",
+          "ribosome: Site of protein synthesis",
+          "osmosis: Diffusion of water across a membrane"
+        ];
+
+        this.canvas = document.getElementById('hangmanCanvas');
+        this.ctx = this.canvas.getContext('2d');
+        this.wordDisplay = document.getElementById('wordDisplay');
+        this.hintDisplay = document.getElementById('hintDisplay');
+        this.errorCount = 0;
+        this.maxErrors = 4;
+        this.wrongGuessesThisGame = 0;
+        this.startedAt = null;
+
+        this.loadGameData().then(() => {
+          this.initGame();
+          this.setupKeyboard();
+          this.setupKeyboardInput();
+          renderStats();
+        });
+      }
+
+      async loadGameData() {
+        try {
+          const response = await fetch('fnl.txt', { cache: "no-store" });
+          if (response.ok) {
+            const text = await response.text();
+            const lines = text.split('\n').map(s => s.trim()).filter(Boolean);
+            if (lines.length) this.gameData = lines;
+          }
+        } catch (err) {
+          console.warn('Using built-in sample words. Could not load fnl.txt', err);
+        }
+      }
+
+      initGame() {
+        const randomIndex = Math.floor(Math.random() * this.gameData.length);
+        const line = this.gameData[randomIndex];
+        const [word, hint] = line.split(':').map(str => (str || '').trim());
+
+        this.currentWord = (word || "biology").toUpperCase();
+        this.currentHint = hint || "No hint available";
+        this.maskedWord = this.maskWord(this.currentWord);
+
+        this.hintDisplay.textContent = '';
+        this.wordDisplay.textContent = this.maskedWord;
+        this.errorCount = 0;
+        this.wrongGuessesThisGame = 0;
+        this.startedAt = Date.now();
+
+        this.drawGallows();
+        this.enableAllKeys();
+      }
+
+      maskWord(word) {
+        return word.split('').map(char => {
+          if (" -,' .;()".includes(char)) return char;
+          return '~';
+        }).join('');
+      }
+
+      setupKeyboard() {
+        document.querySelectorAll('.key').forEach(key => {
+          key.addEventListener('click', () => this.handleKeyClick(key));
+        });
+
+        document.getElementById('playAgain').addEventListener('click', () => {
+          document.getElementById('game-over').style.display = 'none';
+          this.initGame();
+        });
+
+        document.getElementById('revealWord').addEventListener('click', () => {
+          this.wordDisplay.textContent = this.currentWord;
+        });
+
+        document.getElementById('quit').addEventListener('click', () => {
+          document.getElementById('game-over').style.display = 'none';
+        });
+
+        document.getElementById('newWord').addEventListener('click', () => this.initGame());
+        document.getElementById('resetStats').addEventListener('click', resetStats);
+      }
+
+      setupKeyboardInput() {
+        document.addEventListener('keydown', (event) => {
+          const key = event.key.toUpperCase();
+          if (/^[A-Z]$/.test(key)) {
+            const keyElement = Array.from(document.querySelectorAll('.key'))
+              .find(k => k.textContent === key && !k.classList.contains('disabled'));
+            if (keyElement) this.handleKeyClick(keyElement);
+          }
+        });
+      }
+
+      handleKeyClick(key) {
+        if (key.classList.contains('disabled')) return;
+
+        const letter = key.textContent;
+        key.classList.add('disabled');
+
+        if (this.currentWord.includes(letter)) {
+          this.updateMaskedWord(letter);
+        } else {
+          this.errorCount++;
+          this.wrongGuessesThisGame++;
+          this.drawHangman();
+
+          if (this.errorCount === 3) {
+            this.hintDisplay.textContent = `Hint: ${this.currentHint}`;
+          }
         }
 
-        // Start the game
-        new HangmanGame();
-    </script>
+        this.checkGameEnd();
+      }
+
+      updateMaskedWord(letter) {
+        let newMasked = '';
+        for (let i = 0; i < this.currentWord.length; i++) {
+          newMasked += (this.currentWord[i] === letter) ? letter : this.maskedWord[i];
+        }
+        this.maskedWord = newMasked;
+        this.wordDisplay.textContent = this.maskedWord;
+      }
+
+      enableAllKeys() {
+        document.querySelectorAll('.key').forEach(key => key.classList.remove('disabled'));
+      }
+
+      checkGameEnd() {
+        const won = !this.maskedWord.includes('~');
+        const lost = this.errorCount >= this.maxErrors;
+
+        if (won || lost) {
+          const elapsed = Date.now() - (this.startedAt || Date.now());
+          recordGameResult({
+            won,
+            wrongGuesses: this.wrongGuessesThisGame,
+            durationMs: elapsed
+          });
+
+          const modal = document.getElementById('game-over');
+          const resultText = document.getElementById('result-text');
+          const sub = document.getElementById('result-sub');
+
+          resultText.textContent = won ? 'You Won!' : 'You Lost!';
+          sub.textContent = `Wrong guesses: ${this.wrongGuessesThisGame} • Time: ${(elapsed/1000).toFixed(1)}s`;
+          this.wordDisplay.textContent = this.currentWord;
+          modal.style.display = 'flex';
+        }
+      }
+
+      drawGallows() {
+        const ctx = this.ctx;
+        ctx.clearRect(0, 0, 400, 400);
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 2;
+
+        // Base
+        ctx.beginPath(); ctx.moveTo(100, 350); ctx.lineTo(300, 350); ctx.stroke();
+        // Vertical pole
+        ctx.beginPath(); ctx.moveTo(200, 350); ctx.lineTo(200, 100); ctx.stroke();
+        // Horizontal beam
+        ctx.beginPath(); ctx.moveTo(200, 100); ctx.lineTo(300, 100); ctx.stroke();
+        // Rope
+        ctx.beginPath(); ctx.moveTo(300, 100); ctx.lineTo(300, 120); ctx.stroke();
+      }
+
+      drawHangman() {
+        const ctx = this.ctx;
+        switch (this.errorCount) {
+          case 1: // Head
+            ctx.beginPath(); ctx.arc(300, 140, 20, 0, Math.PI * 2); ctx.stroke(); break;
+          case 2: // Body
+            ctx.beginPath(); ctx.moveTo(300, 160); ctx.lineTo(300, 240); ctx.stroke(); break;
+          case 3: // Arms
+            ctx.beginPath();
+            ctx.moveTo(300, 180); ctx.lineTo(270, 200);
+            ctx.moveTo(300, 180); ctx.lineTo(330, 200); ctx.stroke(); break;
+          case 4: // Legs
+            ctx.beginPath();
+            ctx.moveTo(300, 240); ctx.lineTo(270, 280);
+            ctx.moveTo(300, 240); ctx.lineTo(330, 280); ctx.stroke(); break;
+        }
+      }
+    }
+
+    // boot
+    new HangmanGame();
+    renderStats();
+  </script>
 </body>
 </html>
