@@ -32,7 +32,6 @@ on the third failed attempt to guess the word correctly. Please get the word in 
 I would like to thank Professor Aana Varvak for her invaluable guidance. I would also like to thank the authors of "Python Programming: An Introduction to Computer
 Science ISBN: 9781590282755 and OpenStax for their valuable contributions to my project.
 
-Note: This project was submitted for the Introduction to Computer Science(MATH121)(2023), Soka University of America.
 
 # Want to Play? Click on Play Now Button.
 [![Play Online](https://img.shields.io/badge/Play-Now-brightgreen)](https://anupparajuli01.github.io/Biology_Hanging_Man/BiologyHangingMan.html)
