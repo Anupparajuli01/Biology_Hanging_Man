@@ -165,7 +165,12 @@
         <div class="stat"><div class="label">Avg Wrong Guesses</div><div class="value" id="sAvgWrong">0.0</div></div>
       </div>
 
-      <canvas id="statsChart" width="480" height="260" aria-label="Wins vs Losses Bar Chart"></canvas>
+      <canvas id="statsChart" width="480" height="240" aria-label="Wins vs Losses Bar Chart"></canvas>
+      <div class="small" style="margin:8px 0 6px">Wins vs losses per total history</div>
+
+      <canvas id="winRateChart" width="480" height="240" aria-label="Win Rate Trend Line"></canvas>
+      <div class="small">Win rate trend over games played</div>
+
       <div class="small" style="margin-top:6px">
         Stats persist locally via browser storage. Use Reset to clear.
       </div>
@@ -179,8 +184,7 @@
       <p class="small" id="result-sub"></p>
       <div>
         <button class="button" id="playAgain">Play Again</button>
-        <button class="button secondary" id="revealWord">Reveal Word</button>
-        <button class="button danger" id="quit">Quit</button>
+        <button class="button secondary" id="quit">Quit</button>
       </div>
     </div>
   </div>
@@ -201,8 +205,10 @@
       totalWrong: 0,        // sum of wrong guesses across games
       totalDurationMs: 0    // optional if you want to show average time later
     };
+    const DEFAULT_HISTORY = []; // { t: unix_ms, winRate: number }
 
     const STATS_KEY = "bioHangman_stats_v1";
+    const HIST_KEY  = "bioHangman_winRateHistory_v1";
 
     function loadStats() {
       try {
@@ -212,12 +218,20 @@
     }
     function saveStats(s) { localStorage.setItem(STATS_KEY, JSON.stringify(s)); }
 
+    function loadHistory() {
+      try {
+        const raw = localStorage.getItem(HIST_KEY);
+        return raw ? JSON.parse(raw) : [...DEFAULT_HISTORY];
+      } catch { return [...DEFAULT_HISTORY]; }
+    }
+    function saveHistory(h) { localStorage.setItem(HIST_KEY, JSON.stringify(h)); }
+
     function recordGameResult({ won, wrongGuesses, durationMs }) {
       const s = loadStats();
       s.played += 1;
       if (won) {
         s.wins += 1;
-        s.streak = s.streak >= 0 ? s.streak + 1 : 1;  // reset if negative
+        s.streak = s.streak >= 0 ? s.streak + 1 : 1;
       } else {
         s.losses += 1;
         s.streak = s.streak <= 0 ? s.streak - 1 : -1;
@@ -225,12 +239,24 @@
       s.totalWrong += wrongGuesses;
       if (Number.isFinite(durationMs)) s.totalDurationMs += durationMs;
       saveStats(s);
+
+      // update win rate history
+      const winRate = s.played ? s.wins / s.played : 0;
+      const hist = loadHistory();
+      hist.push({ t: Date.now(), winRate });
+      // keep history from growing forever
+      if (hist.length > 1000) hist.shift();
+      saveHistory(hist);
+
       renderStats();
+      renderLineChart();
     }
 
     function resetStats() {
       saveStats({ ...DEFAULT_STATS });
+      saveHistory([]);
       renderStats();
+      renderLineChart();
     }
 
     function renderStats() {
@@ -322,6 +348,82 @@
     }
 
     /********************
+     * Win Rate Line    *
+     ********************/
+    function renderLineChart() {
+      const hist = loadHistory();
+      const c = document.getElementById("winRateChart");
+      const ctx = c.getContext("2d");
+      const W = c.width, H = c.height;
+      ctx.clearRect(0,0,W,H);
+
+      const pad = 40;
+      const innerW = W - 2*pad;
+      const innerH = H - 2*pad;
+
+      // axes
+      ctx.strokeStyle = "#9ca3af";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(pad, H - pad);
+      ctx.lineTo(W - pad, H - pad); // x
+      ctx.moveTo(pad, H - pad);
+      ctx.lineTo(pad, pad);         // y
+      ctx.stroke();
+
+      // y grid (0%..100%)
+      ctx.fillStyle = "#6b7280";
+      ctx.font = "12px system-ui, sans-serif";
+      const yTicks = [0, 25, 50, 75, 100];
+      yTicks.forEach(pct => {
+        const y = H - pad - (pct/100)*innerH;
+        ctx.strokeStyle = "rgba(0,0,0,0.05)";
+        ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(W - pad, y); ctx.stroke();
+        ctx.fillText(pct + "%", 6, y + 4);
+      });
+
+      if (hist.length === 0) {
+        ctx.fillStyle = "#6b7280";
+        ctx.fillText("Play a few games to see your trend", pad + 10, H/2);
+        return;
+      }
+
+      // x mapping by index (game count)
+      const n = hist.length;
+      function xAt(i) { return pad + (i/(Math.max(1, n - 1))) * innerW; }
+      function yAt(winRate) { return H - pad - winRate * innerH; } // winRate as 0..1
+
+      // line path
+      ctx.strokeStyle = "#2563eb";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(xAt(0), yAt(hist[0].winRate));
+      for (let i = 1; i < n; i++) {
+        ctx.lineTo(xAt(i), yAt(hist[i].winRate));
+      }
+      ctx.stroke();
+
+      // points
+      ctx.fillStyle = "#111827";
+      for (let i = 0; i < n; i++) {
+        const x = xAt(i);
+        const y = yAt(hist[i].winRate);
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      // x labels: show 1..n along bottom (sparse if many)
+      ctx.fillStyle = "#111827";
+      ctx.font = "12px system-ui, sans-serif";
+      const step = Math.ceil(n / 8);
+      for (let i = 0; i < n; i += step) {
+        const x = xAt(i);
+        ctx.fillText(String(i + 1), x - 4, H - pad + 16);
+      }
+    }
+
+    /********************
      * Hangman Game     *
      ********************/
     class HangmanGame {
@@ -347,6 +449,7 @@
           this.setupKeyboard();
           this.setupKeyboardInput();
           renderStats();
+          renderLineChart();
         });
       }
 
@@ -383,10 +486,7 @@
       }
 
       maskWord(word) {
-        return word.split('').map(char => {
-          if (" -,' .;()".includes(char)) return char;
-          return '~';
-        }).join('');
+        return word.split('').map(char => (" -,' .;()".includes(char) ? char : '~')).join('');
       }
 
       setupKeyboard() {
@@ -397,10 +497,6 @@
         document.getElementById('playAgain').addEventListener('click', () => {
           document.getElementById('game-over').style.display = 'none';
           this.initGame();
-        });
-
-        document.getElementById('revealWord').addEventListener('click', () => {
-          this.wordDisplay.textContent = this.currentWord;
         });
 
         document.getElementById('quit').addEventListener('click', () => {
@@ -434,10 +530,7 @@
           this.errorCount++;
           this.wrongGuessesThisGame++;
           this.drawHangman();
-
-          if (this.errorCount === 3) {
-            this.hintDisplay.textContent = `Hint: ${this.currentHint}`;
-          }
+          if (this.errorCount === 3) this.hintDisplay.textContent = `Hint: ${this.currentHint}`;
         }
 
         this.checkGameEnd();
@@ -473,7 +566,7 @@
           const sub = document.getElementById('result-sub');
 
           resultText.textContent = won ? 'You Won!' : 'You Lost!';
-          sub.textContent = `Wrong guesses: ${this.wrongGuessesThisGame} • Time: ${(elapsed/1000).toFixed(1)}s`;
+          if (sub) sub.textContent = `Wrong guesses: ${this.wrongGuessesThisGame} • Time: ${(elapsed/1000).toFixed(1)}s`;
           this.wordDisplay.textContent = this.currentWord;
           modal.style.display = 'flex';
         }
@@ -498,18 +591,16 @@
       drawHangman() {
         const ctx = this.ctx;
         switch (this.errorCount) {
-          case 1: // Head
-            ctx.beginPath(); ctx.arc(300, 140, 20, 0, Math.PI * 2); ctx.stroke(); break;
-          case 2: // Body
-            ctx.beginPath(); ctx.moveTo(300, 160); ctx.lineTo(300, 240); ctx.stroke(); break;
-          case 3: // Arms
+          case 1: ctx.beginPath(); ctx.arc(300, 140, 20, 0, Math.PI * 2); ctx.stroke(); break; // Head
+          case 2: ctx.beginPath(); ctx.moveTo(300, 160); ctx.lineTo(300, 240); ctx.stroke(); break; // Body
+          case 3:
             ctx.beginPath();
             ctx.moveTo(300, 180); ctx.lineTo(270, 200);
-            ctx.moveTo(300, 180); ctx.lineTo(330, 200); ctx.stroke(); break;
-          case 4: // Legs
+            ctx.moveTo(300, 180); ctx.lineTo(330, 200); ctx.stroke(); break; // Arms
+          case 4:
             ctx.beginPath();
             ctx.moveTo(300, 240); ctx.lineTo(270, 280);
-            ctx.moveTo(300, 240); ctx.lineTo(330, 280); ctx.stroke(); break;
+            ctx.moveTo(300, 240); ctx.lineTo(330, 280); ctx.stroke(); break; // Legs
         }
       }
     }
@@ -517,6 +608,7 @@
     // boot
     new HangmanGame();
     renderStats();
+    renderLineChart();
   </script>
 </body>
 </html>
