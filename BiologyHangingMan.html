@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Biology Vocabulary Hangman</title>
   <style>
     :root {
@@ -13,8 +13,8 @@
       --ink: #111827;
       --bg: #f3f4f6;
       --ring: rgba(0,0,0,0.08);
+      --border: #e5e7eb;
     }
-
     * { box-sizing: border-box; }
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -23,17 +23,10 @@
       margin: 0; padding: 20px;
       display: flex; flex-direction: column; align-items: center; min-height: 100vh;
     }
-
     a { color: #2563eb; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    .wrap {
-      width: 100%;
-      max-width: 1100px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 16px;
-    }
+    .wrap { width: 100%; max-width: 1100px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
     @media (max-width: 980px) { .wrap { grid-template-columns: 1fr; } }
 
     .card {
@@ -41,32 +34,37 @@
       border-radius: 14px;
       box-shadow: 0 2px 20px var(--ring);
       padding: 16px;
+      border: 1px solid var(--border);
     }
+
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .small { color: var(--muted); font-size: 0.9rem; }
+
+    .button {
+      padding: 10px 16px; border: none; border-radius: 8px; cursor: pointer;
+      background: var(--accent); color: white; font-size: 1rem; font-weight: 700;
+    }
+    .button.ghost { background: #f3f4f6; color: #111827; }
+    .button.secondary { background: #111827; }
+    .button.danger { background: var(--danger); }
 
     .game-container { display: flex; flex-direction: column; align-items: center; }
-    .hangman-container {
-      border: 1px solid #e5e7eb; border-radius: 10px;
-      width: 400px; height: 400px; position: relative; overflow: hidden;
-    }
+    .hangman-container { border: 1px solid var(--border); border-radius: 10px; width: 400px; height: 400px; position: relative; overflow: hidden; }
     canvas { display: block; }
 
-    .word-display {
-      font-size: 2rem; letter-spacing: 6px; margin: 14px 0 6px; text-align: center; min-height: 48px;
-    }
-    .hint-display {
-      color: #b91c1c; margin: 8px 0 12px; text-align: center; font-size: 0.95rem;
-      max-width: 640px; min-height: 44px; padding: 6px;
-    }
+    .word-display { font-size: 2rem; letter-spacing: 6px; margin: 14px 0 6px; text-align: center; min-height: 48px; }
+    .hint-display { color: #b91c1c; margin: 8px 0 12px; text-align: center; font-size: 0.95rem; max-width: 640px; min-height: 44px; padding: 6px; }
 
     .keyboard { display: grid; gap: 6px; margin: 10px 0 0; }
     .keyboard-row { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
     .key {
-      width: 40px; height: 40px; border: 1px solid #e5e7eb; border-radius: 8px;
+      width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 8px;
       display: flex; align-items: center; justify-content: center; cursor: pointer;
       background: white; font-weight: 700; transition: transform .05s ease;
     }
     .key:hover { transform: translateY(-1px); }
     .key.disabled { background: #e5e7eb; cursor: not-allowed; color: #9ca3af; }
+    .keyboard.inactive { pointer-events: none; opacity: 0.6; }
 
     #game-over {
       position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
@@ -77,25 +75,9 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.2); padding: 20px; text-align: center;
     }
 
-    .button {
-      padding: 10px 16px; margin: 8px; border: none; border-radius: 8px; cursor: pointer;
-      background: var(--accent); color: white; font-size: 1rem; font-weight: 700;
-    }
-    .button.secondary { background: #111827; }
-    .button.ghost { background: #f3f4f6; color: #111827; }
-    .button.danger { background: var(--danger); }
-
-    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-    .small { color: var(--muted); font-size: 0.9rem; }
-
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 14px;
-    }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 14px; }
     @media (max-width: 520px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
-
-    .stat {
-      background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 12px; text-align: center;
-    }
+    .stat { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 12px; text-align: center; }
     .stat .label { color: #6b7280; font-size: 0.8rem; margin-bottom: 3px; }
     .stat .value { font-size: 1.25rem; font-weight: 800; }
 
@@ -103,12 +85,8 @@
   </style>
 </head>
 <body>
-  <p align="center">
-    This is a web-based version of the Biology Hanging Man.
-    Repository
-    <a href="https://github.com/Anupparajuli01/Biology_Hanging_Man">link</a> •
-    Rules
-    <a href="https://anupparajuli01.github.io/Biology_Hanging_Man/">link</a>
+  <p class="small" align="center">
+    Web-based Biology Vocabulary Hangman • Place <code>fnl.txt</code> next to this file • Each line: <code>word: hint</code>
   </p>
 
   <div class="wrap">
@@ -128,20 +106,15 @@
         <div class="word-display" id="wordDisplay"></div>
         <div class="hint-display" id="hintDisplay"></div>
 
-        <div class="keyboard">
-          <div class="keyboard-row" id="row1">
-            <button class="key">Q</button><button class="key">W</button><button class="key">E</button>
-            <button class="key">R</button><button class="key">T</button><button class="key">Y</button>
-            <button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
+        <div class="keyboard" id="keyboard">
+          <div class="keyboard-row">
+            <button class="key">Q</button><button class="key">W</button><button class="key">E</button><button class="key">R</button><button class="key">T</button><button class="key">Y</button><button class="key">U</button><button class="key">I</button><button class="key">O</button><button class="key">P</button>
           </div>
-          <div class="keyboard-row" id="row2">
-            <button class="key">A</button><button class="key">S</button><button class="key">D</button>
-            <button class="key">F</button><button class="key">G</button><button class="key">H</button>
-            <button class="key">J</button><button class="key">K</button><button class="key">L</button>
+          <div class="keyboard-row">
+            <button class="key">A</button><button class="key">S</button><button class="key">D</button><button class="key">F</button><button class="key">G</button><button class="key">H</button><button class="key">J</button><button class="key">K</button><button class="key">L</button>
           </div>
-          <div class="keyboard-row" id="row3">
-            <button class="key">Z</button><button class="key">X</button><button class="key">C</button>
-            <button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button>
+          <div class="keyboard-row">
+            <button class="key">Z</button><button class="key">X</button><button class="key">C</button><button class="key">V</button><button class="key">B</button><button class="key">N</button><button class="key">M</button>
           </div>
         </div>
       </div>
@@ -166,10 +139,10 @@
       </div>
 
       <canvas id="statsChart" width="480" height="240" aria-label="Wins vs Losses Bar Chart"></canvas>
-      <div class="small" style="margin:8px 0 6px">Wins vs losses per total history</div>
+      <div class="small" style="margin:8px 0 6px">Wins vs losses across all games</div>
 
       <canvas id="winRateChart" width="480" height="240" aria-label="Win Rate Trend Line"></canvas>
-      <div class="small">Win rate trend over games played</div>
+      <div class="small">Win rate trend over time</div>
 
       <div class="small" style="margin-top:6px">
         Stats persist locally via browser storage. Use Reset to clear.
@@ -177,7 +150,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Game Over Modal -->
   <div id="game-over">
     <div class="dialog">
       <h2 id="result-text" style="margin-top:0"></h2>
@@ -195,32 +168,29 @@
 
   <script>
     /********************
-     * Analytics Store  *
+     * Analytics Store
      ********************/
     const DEFAULT_STATS = {
       played: 0,
       wins: 0,
       losses: 0,
-      streak: 0,            // positive for win streak, negative for loss streak
-      totalWrong: 0,        // sum of wrong guesses across games
-      totalDurationMs: 0    // optional if you want to show average time later
+      streak: 0,         // positive for win streak, negative for loss streak
+      totalWrong: 0,
+      totalDurationMs: 0
     };
-    const DEFAULT_HISTORY = []; // { t: unix_ms, winRate: number }
-
+    const DEFAULT_HISTORY = []; // [{ t: unix_ms, winRate: number }]
     const STATS_KEY = "bioHangman_stats_v1";
     const HIST_KEY  = "bioHangman_winRateHistory_v1";
 
     function loadStats() {
-      try {
-        const raw = localStorage.getItem(STATS_KEY);
+      try { const raw = localStorage.getItem(STATS_KEY);
         return raw ? { ...DEFAULT_STATS, ...JSON.parse(raw) } : { ...DEFAULT_STATS };
       } catch { return { ...DEFAULT_STATS }; }
     }
     function saveStats(s) { localStorage.setItem(STATS_KEY, JSON.stringify(s)); }
 
     function loadHistory() {
-      try {
-        const raw = localStorage.getItem(HIST_KEY);
+      try { const raw = localStorage.getItem(HIST_KEY);
         return raw ? JSON.parse(raw) : [...DEFAULT_HISTORY];
       } catch { return [...DEFAULT_HISTORY]; }
     }
@@ -229,23 +199,17 @@
     function recordGameResult({ won, wrongGuesses, durationMs }) {
       const s = loadStats();
       s.played += 1;
-      if (won) {
-        s.wins += 1;
-        s.streak = s.streak >= 0 ? s.streak + 1 : 1;
-      } else {
-        s.losses += 1;
-        s.streak = s.streak <= 0 ? s.streak - 1 : -1;
-      }
+      if (won) { s.wins += 1; s.streak = s.streak >= 0 ? s.streak + 1 : 1; }
+      else     { s.losses += 1; s.streak = s.streak <= 0 ? s.streak - 1 : -1; }
       s.totalWrong += wrongGuesses;
       if (Number.isFinite(durationMs)) s.totalDurationMs += durationMs;
       saveStats(s);
 
-      // update win rate history
+      // win rate history
       const winRate = s.played ? s.wins / s.played : 0;
       const hist = loadHistory();
       hist.push({ t: Date.now(), winRate });
-      // keep history from growing forever
-      if (hist.length > 1000) hist.shift();
+      if (hist.length > 1000) hist.shift(); // cap
       saveHistory(hist);
 
       renderStats();
@@ -261,9 +225,7 @@
 
     function renderStats() {
       const s = loadStats();
-      const played = s.played;
-      const wins = s.wins;
-      const losses = s.losses;
+      const played = s.played, wins = s.wins, losses = s.losses;
       const winRate = played ? Math.round((wins / played) * 100) : 0;
       const avgWrong = played ? (s.totalWrong / played).toFixed(1) : "0.0";
 
@@ -278,7 +240,7 @@
     }
 
     /********************
-     * Simple Bar Chart *
+     * Simple Bar Chart
      ********************/
     function drawBarChart(canvasId, wins, losses) {
       const c = document.getElementById(canvasId);
@@ -286,69 +248,53 @@
       const W = c.width, H = c.height;
       ctx.clearRect(0,0,W,H);
 
+      const pad = 40, baseY = H - pad, innerH = H - 2*pad, innerW = W - 2*pad;
+
       // axes
-      const pad = 40;
-      ctx.strokeStyle = "#9ca3af";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.moveTo(pad, H - pad);
-      ctx.lineTo(W - pad, H - pad); // x
-      ctx.moveTo(pad, H - pad);
-      ctx.lineTo(pad, pad);         // y
-      ctx.stroke();
+      ctx.strokeStyle = "#9ca3af"; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(pad, baseY); ctx.lineTo(W - pad, baseY); ctx.moveTo(pad, baseY); ctx.lineTo(pad, pad); ctx.stroke();
 
-      const maxVal = Math.max(5, wins, losses); // avoid zero scale
-      const barW = 80;
-      const gap = 60;
-      const baseY = H - pad;
+      const maxVal = Math.max(5, wins, losses);
+      const barW = 80, gap = 60;
+      const totalBarArea = 2*barW + gap;
+      const startX = pad + (innerW - totalBarArea)/2;
 
-      function bar(x, y, w, h, fill) {
-        ctx.fillStyle = fill;
-        ctx.fillRect(x, y, w, h);
-        ctx.strokeStyle = "rgba(0,0,0,0.08)";
-        ctx.strokeRect(x, y, w, h);
-      }
-
-      // y ticks
-      ctx.fillStyle = "#6b7280";
-      ctx.font = "12px system-ui, sans-serif";
+      // grid + y labels
+      ctx.fillStyle = "#6b7280"; ctx.font = "12px system-ui, sans-serif";
       const ticks = 5;
       for (let i=0; i<=ticks; i++) {
         const v = Math.round((maxVal * i) / ticks);
-        const yy = baseY - ( (H - 2*pad) * (i / ticks) );
+        const yy = baseY - (innerH * (i / ticks));
         ctx.fillText(String(v), 8, yy + 4);
         ctx.strokeStyle = "rgba(0,0,0,0.05)";
-        ctx.beginPath();
-        ctx.moveTo(pad, yy);
-        ctx.lineTo(W - pad, yy);
-        ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(pad, yy); ctx.lineTo(W - pad, yy); ctx.stroke();
       }
 
       // bars
-      const totalBarArea = 2*barW + gap;
-      const startX = pad + (W - 2*pad - totalBarArea)/2;
+      const winsH = (wins / maxVal) * innerH;
+      const lossesH = (losses / maxVal) * innerH;
 
-      const winsH = (wins / maxVal) * (H - 2*pad);
-      const lossesH = (losses / maxVal) * (H - 2*pad);
+      function bar(x, y, w, h, fill) {
+        ctx.fillStyle = fill; ctx.fillRect(x, y, w, h);
+        ctx.strokeStyle = "rgba(0,0,0,0.08)"; ctx.strokeRect(x, y, w, h);
+      }
 
       bar(startX, baseY - winsH, barW, winsH, "#22c55e");
       bar(startX + barW + gap, baseY - lossesH, barW, lossesH, "#ef4444");
 
       // labels
-      ctx.fillStyle = "#111827";
-      ctx.font = "bold 13px system-ui, sans-serif";
+      ctx.fillStyle = "#111827"; ctx.font = "bold 13px system-ui, sans-serif";
       ctx.fillText("Wins", startX + barW/2 - 18, H - pad + 18);
       ctx.fillText("Losses", startX + barW + gap + barW/2 - 26, H - pad + 18);
 
-      // values on top
-      ctx.fillStyle = "#111827";
+      // values
       ctx.font = "bold 14px system-ui, sans-serif";
       ctx.fillText(String(wins), startX + barW/2 - 6, baseY - winsH - 8);
       ctx.fillText(String(losses), startX + barW + gap + barW/2 - 8, baseY - lossesH - 8);
     }
 
     /********************
-     * Win Rate Line    *
+     * Win Rate Line
      ********************/
     function renderLineChart() {
       const hist = loadHistory();
@@ -357,175 +303,156 @@
       const W = c.width, H = c.height;
       ctx.clearRect(0,0,W,H);
 
-      const pad = 40;
-      const innerW = W - 2*pad;
-      const innerH = H - 2*pad;
+      const pad = 40, innerW = W - 2*pad, innerH = H - 2*pad, baseY = H - pad;
 
       // axes
-      ctx.strokeStyle = "#9ca3af";
-      ctx.lineWidth = 1.2;
-      ctx.beginPath();
-      ctx.moveTo(pad, H - pad);
-      ctx.lineTo(W - pad, H - pad); // x
-      ctx.moveTo(pad, H - pad);
-      ctx.lineTo(pad, pad);         // y
-      ctx.stroke();
+      ctx.strokeStyle = "#9ca3af"; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.moveTo(pad, baseY); ctx.lineTo(W - pad, baseY); ctx.moveTo(pad, baseY); ctx.lineTo(pad, pad); ctx.stroke();
 
-      // y grid (0%..100%)
-      ctx.fillStyle = "#6b7280";
-      ctx.font = "12px system-ui, sans-serif";
-      const yTicks = [0, 25, 50, 75, 100];
-      yTicks.forEach(pct => {
-        const y = H - pad - (pct/100)*innerH;
+      // y grid 0..100%
+      ctx.fillStyle = "#6b7280"; ctx.font = "12px system-ui, sans-serif";
+      [0,25,50,75,100].forEach(pct => {
+        const y = baseY - (pct/100)*innerH;
         ctx.strokeStyle = "rgba(0,0,0,0.05)";
         ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(W - pad, y); ctx.stroke();
         ctx.fillText(pct + "%", 6, y + 4);
       });
 
-      if (hist.length === 0) {
+      if (!hist.length) {
         ctx.fillStyle = "#6b7280";
         ctx.fillText("Play a few games to see your trend", pad + 10, H/2);
         return;
       }
 
-      // x mapping by index (game count)
       const n = hist.length;
-      function xAt(i) { return pad + (i/(Math.max(1, n - 1))) * innerW; }
-      function yAt(winRate) { return H - pad - winRate * innerH; } // winRate as 0..1
+      const xAt = (i) => pad + (i / Math.max(1, n - 1)) * innerW;
+      const yAt = (wr) => baseY - wr * innerH; // wr in [0,1]
 
-      // line path
-      ctx.strokeStyle = "#2563eb";
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(xAt(0), yAt(hist[0].winRate));
-      for (let i = 1; i < n; i++) {
-        ctx.lineTo(xAt(i), yAt(hist[i].winRate));
-      }
+      // line
+      ctx.strokeStyle = "#2563eb"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(xAt(0), yAt(hist[0].winRate));
+      for (let i=1; i<n; i++) ctx.lineTo(xAt(i), yAt(hist[i].winRate));
       ctx.stroke();
 
       // points
       ctx.fillStyle = "#111827";
-      for (let i = 0; i < n; i++) {
-        const x = xAt(i);
-        const y = yAt(hist[i].winRate);
-        ctx.beginPath();
-        ctx.arc(x, y, 3, 0, Math.PI*2);
-        ctx.fill();
-      }
+      for (let i=0; i<n; i++) { ctx.beginPath(); ctx.arc(xAt(i), yAt(hist[i].winRate), 3, 0, Math.PI*2); ctx.fill(); }
 
-      // x labels: show 1..n along bottom (sparse if many)
-      ctx.fillStyle = "#111827";
-      ctx.font = "12px system-ui, sans-serif";
+      // x labels (game indices)
+      ctx.fillStyle = "#111827"; ctx.font = "12px system-ui, sans-serif";
       const step = Math.ceil(n / 8);
-      for (let i = 0; i < n; i += step) {
-        const x = xAt(i);
-        ctx.fillText(String(i + 1), x - 4, H - pad + 16);
-      }
+      for (let i=0; i<n; i+=step) ctx.fillText(String(i+1), xAt(i)-4, H - pad + 16);
     }
 
     /********************
-     * Hangman Game     *
+     * Hangman Game (with input lock fix)
      ********************/
     class HangmanGame {
       constructor() {
-        this.gameData = [
-          "DNA: The molecule that carries genetic information",
-          "mitochondrion: Organelle that produces energy",
-          "ribosome: Site of protein synthesis",
-          "osmosis: Diffusion of water across a membrane"
-        ];
+        this.gameData = [];                     // will be filled from fnl.txt
+        this.gameActive = false;                // gates inputs while modal up
+        this.modalEl = document.getElementById('game-over');
+        this.keyboardEl = document.getElementById('keyboard');
 
         this.canvas = document.getElementById('hangmanCanvas');
         this.ctx = this.canvas.getContext('2d');
         this.wordDisplay = document.getElementById('wordDisplay');
         this.hintDisplay = document.getElementById('hintDisplay');
-        this.errorCount = 0;
+
         this.maxErrors = 4;
+        this.errorCount = 0;
         this.wrongGuessesThisGame = 0;
         this.startedAt = null;
 
-        this.loadGameData().then(() => {
-          this.initGame();
-          this.setupKeyboard();
-          this.setupKeyboardInput();
-          renderStats();
-          renderLineChart();
-        });
+        this.bindUI();
+        this.loadGameData().then(() => this.initGame());
       }
 
-      async loadGameData() {
-        try {
-          const response = await fetch('fnl.txt', { cache: "no-store" });
-          if (response.ok) {
-            const text = await response.text();
-            const lines = text.split('\n').map(s => s.trim()).filter(Boolean);
-            if (lines.length) this.gameData = lines;
-          }
-        } catch (err) {
-          console.warn('Using built-in sample words. Could not load fnl.txt', err);
-        }
-      }
-
-      initGame() {
-        const randomIndex = Math.floor(Math.random() * this.gameData.length);
-        const line = this.gameData[randomIndex];
-        const [word, hint] = line.split(':').map(str => (str || '').trim());
-
-        this.currentWord = (word || "biology").toUpperCase();
-        this.currentHint = hint || "No hint available";
-        this.maskedWord = this.maskWord(this.currentWord);
-
-        this.hintDisplay.textContent = '';
-        this.wordDisplay.textContent = this.maskedWord;
-        this.errorCount = 0;
-        this.wrongGuessesThisGame = 0;
-        this.startedAt = Date.now();
-
-        this.drawGallows();
-        this.enableAllKeys();
-      }
-
-      maskWord(word) {
-        return word.split('').map(char => (" -,' .;()".includes(char) ? char : '~')).join('');
-      }
-
-      setupKeyboard() {
+      bindUI() {
+        // button clicks
         document.querySelectorAll('.key').forEach(key => {
           key.addEventListener('click', () => this.handleKeyClick(key));
         });
 
-        document.getElementById('playAgain').addEventListener('click', () => {
-          document.getElementById('game-over').style.display = 'none';
-          this.initGame();
-        });
-
-        document.getElementById('quit').addEventListener('click', () => {
-          document.getElementById('game-over').style.display = 'none';
-        });
-
-        document.getElementById('newWord').addEventListener('click', () => this.initGame());
-        document.getElementById('resetStats').addEventListener('click', resetStats);
-      }
-
-      setupKeyboardInput() {
-        document.addEventListener('keydown', (event) => {
-          const key = event.key.toUpperCase();
+        // physical keyboard (ignore repeats + inactive)
+        document.addEventListener('keydown', (e) => {
+          if (!this.gameActive) return;
+          if (e.repeat) return;
+          const key = e.key.toUpperCase();
           if (/^[A-Z]$/.test(key)) {
-            const keyElement = Array.from(document.querySelectorAll('.key'))
+            const keyEl = Array.from(document.querySelectorAll('.key'))
               .find(k => k.textContent === key && !k.classList.contains('disabled'));
-            if (keyElement) this.handleKeyClick(keyElement);
+            if (keyEl) this.handleKeyClick(keyEl);
           }
         });
+
+        // modal buttons
+        document.getElementById('playAgain').addEventListener('click', () => {
+          this.hideModal();
+          this.initGame();
+        });
+        document.getElementById('quit').addEventListener('click', () => {
+          this.hideModal(); // stays on last word; input stays locked until New Word
+        });
+
+        // controls
+        const newWordBtn = document.getElementById('newWord');
+        if (newWordBtn) newWordBtn.addEventListener('click', () => this.initGame());
+        const resetBtn = document.getElementById('resetStats');
+        if (resetBtn) resetBtn.addEventListener('click', () => { resetStats(); renderLineChart(); });
       }
 
-      handleKeyClick(key) {
-        if (key.classList.contains('disabled')) return;
+      async loadGameData() {
+        try {
+          const res = await fetch('fnl.txt', { cache: 'no-store' });
+          if (!res.ok) throw new Error('fnl.txt not found');
+          const text = await res.text();
+          this.gameData = text.split('\n').map(s => s.trim()).filter(Boolean);
+        } catch (err) {
+          console.warn('Could not load fnl.txt — using single default entry.', err);
+          this.gameData = ["biology: default word when fnl.txt is unavailable"];
+        }
+      }
 
-        const letter = key.textContent;
-        key.classList.add('disabled');
+      initGame() {
+        // UI reset
+        this.enableAllKeys();
+        this.keyboardEl.classList.remove('inactive');
+        this.hintDisplay.textContent = '';
+
+        // pick word
+        const line = this.gameData[Math.floor(Math.random() * this.gameData.length)];
+        const [word, hint] = line.split(':').map(s => (s || '').trim());
+        this.currentWord = (word || 'biology').toUpperCase();
+        this.currentHint = hint || 'No hint available';
+        this.maskedWord = this.maskWord(this.currentWord);
+        this.wordDisplay.textContent = this.maskedWord;
+
+        // counters
+        this.errorCount = 0;
+        this.wrongGuessesThisGame = 0;
+        this.startedAt = Date.now();
+
+        // draw scaffold
+        this.drawGallows();
+
+        // ACTIVATE input
+        this.gameActive = true;
+      }
+
+      maskWord(word) {
+        return word.split('').map(ch => (" -,' .;()".includes(ch) ? ch : '~')).join('');
+      }
+
+      handleKeyClick(keyEl) {
+        if (!this.gameActive) return;
+        if (keyEl.classList.contains('disabled')) return;
+
+        const letter = keyEl.textContent;
+        keyEl.classList.add('disabled');
 
         if (this.currentWord.includes(letter)) {
-          this.updateMaskedWord(letter);
+          this.reveal(letter);
         } else {
           this.errorCount++;
           this.wrongGuessesThisGame++;
@@ -533,74 +460,67 @@
           if (this.errorCount === 3) this.hintDisplay.textContent = `Hint: ${this.currentHint}`;
         }
 
-        this.checkGameEnd();
+        this.maybeEndGame();
       }
 
-      updateMaskedWord(letter) {
-        let newMasked = '';
+      reveal(letter) {
+        let out = '';
         for (let i = 0; i < this.currentWord.length; i++) {
-          newMasked += (this.currentWord[i] === letter) ? letter : this.maskedWord[i];
+          out += (this.currentWord[i] === letter) ? letter : this.maskedWord[i];
         }
-        this.maskedWord = newMasked;
+        this.maskedWord = out;
         this.wordDisplay.textContent = this.maskedWord;
       }
 
-      enableAllKeys() {
-        document.querySelectorAll('.key').forEach(key => key.classList.remove('disabled'));
-      }
+      enableAllKeys() { document.querySelectorAll('.key').forEach(k => k.classList.remove('disabled')); }
 
-      checkGameEnd() {
+      maybeEndGame() {
         const won = !this.maskedWord.includes('~');
         const lost = this.errorCount >= this.maxErrors;
+        if (!won && !lost) return;
 
-        if (won || lost) {
-          const elapsed = Date.now() - (this.startedAt || Date.now());
-          recordGameResult({
-            won,
-            wrongGuesses: this.wrongGuessesThisGame,
-            durationMs: elapsed
-          });
+        // LOCK input immediately
+        this.gameActive = false;
+        this.keyboardEl.classList.add('inactive');
 
-          const modal = document.getElementById('game-over');
-          const resultText = document.getElementById('result-text');
-          const sub = document.getElementById('result-sub');
+        const elapsed = Date.now() - (this.startedAt || Date.now());
+        recordGameResult({ won, wrongGuesses: this.wrongGuessesThisGame, durationMs: elapsed });
 
-          resultText.textContent = won ? 'You Won!' : 'You Lost!';
-          if (sub) sub.textContent = `Wrong guesses: ${this.wrongGuessesThisGame} • Time: ${(elapsed/1000).toFixed(1)}s`;
-          this.wordDisplay.textContent = this.currentWord;
-          modal.style.display = 'flex';
-        }
+        // show result + reveal answer on board
+        document.getElementById('result-text').textContent = won ? 'You Won!' : 'You Lost!';
+        const sub = document.getElementById('result-sub');
+        if (sub) sub.textContent = `Wrong guesses: ${this.wrongGuessesThisGame} • Time: ${(elapsed/1000).toFixed(1)}s`;
+        this.wordDisplay.textContent = this.currentWord;
+
+        this.showModal();
       }
+
+      showModal() { this.modalEl.style.display = 'flex'; }
+      hideModal() { this.modalEl.style.display = 'none'; }
 
       drawGallows() {
         const ctx = this.ctx;
         ctx.clearRect(0, 0, 400, 400);
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = 2;
-
-        // Base
-        ctx.beginPath(); ctx.moveTo(100, 350); ctx.lineTo(300, 350); ctx.stroke();
-        // Vertical pole
-        ctx.beginPath(); ctx.moveTo(200, 350); ctx.lineTo(200, 100); ctx.stroke();
-        // Horizontal beam
-        ctx.beginPath(); ctx.moveTo(200, 100); ctx.lineTo(300, 100); ctx.stroke();
-        // Rope
-        ctx.beginPath(); ctx.moveTo(300, 100); ctx.lineTo(300, 120); ctx.stroke();
+        ctx.strokeStyle = 'black'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(100, 350); ctx.lineTo(300, 350); ctx.stroke();      // base
+        ctx.beginPath(); ctx.moveTo(200, 350); ctx.lineTo(200, 100); ctx.stroke();      // pole
+        ctx.beginPath(); ctx.moveTo(200, 100); ctx.lineTo(300, 100); ctx.stroke();      // beam
+        ctx.beginPath(); ctx.moveTo(300, 100); ctx.lineTo(300, 120); ctx.stroke();      // rope
       }
 
       drawHangman() {
         const ctx = this.ctx;
         switch (this.errorCount) {
-          case 1: ctx.beginPath(); ctx.arc(300, 140, 20, 0, Math.PI * 2); ctx.stroke(); break; // Head
-          case 2: ctx.beginPath(); ctx.moveTo(300, 160); ctx.lineTo(300, 240); ctx.stroke(); break; // Body
+          case 1: ctx.beginPath(); ctx.arc(300, 140, 20, 0, Math.PI*2); ctx.stroke(); break; // head
+          case 2: ctx.beginPath(); ctx.moveTo(300, 160); ctx.lineTo(300, 240); ctx.stroke(); break; // body
           case 3:
             ctx.beginPath();
             ctx.moveTo(300, 180); ctx.lineTo(270, 200);
-            ctx.moveTo(300, 180); ctx.lineTo(330, 200); ctx.stroke(); break; // Arms
+            ctx.moveTo(300, 180); ctx.lineTo(330, 200); ctx.stroke(); break; // arms
           case 4:
             ctx.beginPath();
             ctx.moveTo(300, 240); ctx.lineTo(270, 280);
-            ctx.moveTo(300, 240); ctx.lineTo(330, 280); ctx.stroke(); break; // Legs
+            ctx.moveTo(300, 240); ctx.lineTo(330, 280); ctx.stroke(); break; // legs
         }
       }
     }
@@ -609,6 +529,14 @@
     new HangmanGame();
     renderStats();
     renderLineChart();
+
+    // extra: prevent space/enter from clicking focused buttons repeatedly while modal is up
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('game-over');
+      if (modal.style.display === 'flex' && (e.key === ' ' || e.key === 'Enter')) {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
