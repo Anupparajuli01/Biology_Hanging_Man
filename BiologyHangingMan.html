@@ -86,11 +86,12 @@
 </head>
 <body>
   <p class="small" align="center">
-    Web-based Biology Vocabulary Hangman • Place <code>fnl.txt</code> next to this file • Each line: <code>word: hint</code>
+    Web-based Biology Vocabulary Hangman | <a href = "https://github.com/Anupparajuli01/Biology_Hanging_Man">Visit This Repository</a> | <a href="https://github.com/Anupparajuli01">GitHub</a>
   </p>
 
   <div class="wrap">
-    <!-- Left: Game -->
+    <!-- GAME: Contains Two Column, Left for Game and Right for Stats -->
+
     <div class="card">
       <div class="toolbar">
         <div class="small">Keyboard enabled — type letters or click buttons</div>
@@ -120,7 +121,7 @@
       </div>
     </div>
 
-    <!-- Right: Analytics -->
+    <!-- STATS: Contains Two Column, Left for Game and Right for Stats -->
     <div class="card">
       <div class="toolbar">
         <strong>Game Analytics</strong>
@@ -150,7 +151,7 @@
     </div>
   </div>
 
-  <!-- Game Over Modal -->
+  <!-- LOAD GAME -->
   <div id="game-over">
     <div class="dialog">
       <h2 id="result-text" style="margin-top:0"></h2>
@@ -167,9 +168,8 @@
   </footer>
 
   <script>
-    /********************
-     * Analytics Store
-     ********************/
+
+    // Analytics Store 
     const DEFAULT_STATS = {
       played: 0,
       wins: 0,
@@ -239,9 +239,9 @@
       drawBarChart("statsChart", wins, losses);
     }
 
-    /********************
-     * Simple Bar Chart
-     ********************/
+    
+     <!-- Simple Bar Chart -->
+     
     function drawBarChart(canvasId, wins, losses) {
       const c = document.getElementById(canvasId);
       const ctx = c.getContext("2d");
@@ -293,9 +293,7 @@
       ctx.fillText(String(losses), startX + barW + gap + barW/2 - 8, baseY - lossesH - 8);
     }
 
-    /********************
-     * Win Rate Line
-     ********************/
+    // Win Rate Line 
     function renderLineChart() {
       const hist = loadHistory();
       const c = document.getElementById("winRateChart");
@@ -344,9 +342,8 @@
       for (let i=0; i<n; i+=step) ctx.fillText(String(i+1), xAt(i)-4, H - pad + 16);
     }
 
-    /********************
-     * Hangman Game (with input lock fix)
-     ********************/
+     // Hangman Game (with input lock fix)
+     
     class HangmanGame {
       constructor() {
         this.gameData = [];                     // will be filled from fnl.txt
