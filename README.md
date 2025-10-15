@@ -2,7 +2,7 @@
 
 **Biology Vocabulary Hangman** is an interactive project that combines **biology education** with **computational tools**.  
 It was originally implemented in **Python** using `graphics.py`, and later extended into a **web-based version** with built-in **statistical analytics and visualizations**.  
-Together, these versions demonstrate my ability to integrate **life sciences, programming, and data analysis** — skills I aim to advance in graduate research in **bioinformatics, protein docking, and biostatistics**.
+Together, these versions demonstrate my ability to integrate **life sciences, programming, and data analysis** skills. I aim to advance in graduate research in **bioinformatics, protein docking, and biostatistics**.
 
 ---
 
