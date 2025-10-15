@@ -1,42 +1,77 @@
-# Biology Hanging Man
+# Biology Vocabulary Hangman 🎓🧬
 
-Hangman is a classic word-guessing game. The game is typically played by two or more players, where one player thinks of a secret word, and the other player(s) tries to guess the word by suggesting letters one at a time. In this project, the computer (Bot) will ask a user to guess the word. This version of the game has been designed to make learning biology vocabulary enjoyable.
+**Biology Vocabulary Hangman** is an interactive project that combines **biology education** with **computational tools**.  
+It was originally implemented in **Python** using `graphics.py`, and later extended into a **web-based version** with built-in **statistical analytics and visualizations**.  
+Together, these versions demonstrate my ability to integrate **life sciences, programming, and data analysis** — skills I aim to advance in graduate research in **bioinformatics, protein docking, and biostatistics**.
 
-# Specification of the Game
-The game is played between a Computer and a Human. The human is required to guess the word that the computer has masked. The computer will select the random line from a text file “fnl.txt.” The text file is derived from the glossary of the biology book from OpenStax. graphics.py from Python Programming: An Introduction to Computer
-Science is used for the graphics of the game.
-For this version, the game is only mouse-based. The user must click the letters shown in the display and win the game before they fail because of multiple incorrect entries.
-The game ends when the word is correctly guessed, or the stick figure is fully drawn. For this model of the game, the stick figure is fully drawn at four incorrect attempts regardless of the word length.
-A hint would be available before the final chance to make the user focus more on the words and their spelling to enrich their vocabulary.
-No statistics will be revealed in the game. The game would only prompt you if you won the game for that round or not.
+---
 
-# Rules of the Game
-The game proceeds as follows:
-- The user will be displayed with a graphical user interface for the game. Initially, the
-guessing word is masked, gallows, and the keyboard is displayed.
-- The user is supposed to guess the word and is allowed to click a letter.
-- If the user guesses the correct letter, then the correct letter is unmasked from the masked
-letter.
-- There are four chances given to guess the masked word correctly. A hint will be provided
-on the third failed attempt to guess the word correctly. Please get the word in four accurate shots to avoid a loss for the game. And it will pop you a button either to try again or quit.
-- If the user clicks the try button again, then the user will be given a chance to play again.
+## 🎯 Project Overview
+- A biology-themed version of the classic **Hangman** word game.
+- Vocabulary sourced from a glossary (`fnl.txt`) based on **OpenStax Biology**.
+- Two complementary implementations:
+  - **Python version:** GUI-based game built with `graphics.py`.  
+  - **Web version:** Interactive browser-based version with statistics and charts.
 
-# Visuals
-<img width="602" alt="Screenshot 2024-11-21 at 11 20 55 PM" src="https://github.com/user-attachments/assets/9011b0c3-59e7-42e0-bee0-6a7300010693">
-<img width="602" alt="Screenshot 2024-11-21 at 11 21 18 PM" src="https://github.com/user-attachments/assets/66a955c0-095e-470f-bc61-8f82cfc89d2f">
-<img width="602" alt="Screenshot 2024-11-21 at 11 22 52 PM" src="https://github.com/user-attachments/assets/792366df-f451-483d-903a-326434b48a83">
-<img width="600" alt="Screenshot 2024-11-21 at 11 24 05 PM" src="https://github.com/user-attachments/assets/4cee840b-3a6f-421d-bcc6-979684f3896f">
+---
 
+## 🕹️ Game Rules
+1. A biology word is selected from the glossary and masked.  
+2. The player guesses letters via on-screen or physical keyboard.  
+3. Four incorrect guesses complete the hangman figure.  
+4. On the **third wrong guess**, a biology-related hint is displayed.  
+5. The word is revealed at game end, and the user may play again or quit.  
 
-# Acknowledgment
-I would like to thank Professor Aana Varvak for her invaluable guidance. I would also like to thank the authors of "Python Programming: An Introduction to Computer
-Science ISBN: 9781590282755 and OpenStax for their valuable contributions to my project.
+---
 
+## 📊 Statistical Features (Web Version Only)
+The web version includes **data-tracking and analytics**, highlighting my interest in **biostatistics**:  
 
-# Want to Play? Click on Play Now Button.
-[![Play Online](https://img.shields.io/badge/Play-Now-brightgreen)](https://anupparajuli01.github.io/Biology_Hanging_Man/BiologyHangingMan.html)
+- **Cumulative Stats Panel**  
+  Tracks games played, wins, losses, win rate, current streak, average wrong guesses.  
 
+- **Auto-Updating Bar Chart**  
+  Visualizes total **wins vs. losses** across all sessions.  
 
-[Go to Repository](https://github.com/anupparajuli01/Biology_Hanging_Man)
+- **Win-Rate Trend Line**  
+  Displays **win rate (%) over time**, showing learning and persistence trends.  
 
+- **Local Storage Persistence**  
+  Stats remain available between sessions and can be reset by the user.  
 
+---
+
+## 📂 Files in This Repository
+- `SelfProject.py` — Original Python version (GUI, no stats).  
+- `graphics.py` — Graphics library dependency for Python version.  
+- `fnl.txt` — Biology vocabulary file (`word: hint` format).  
+- `BiologyHangingMan.html` — Web-based version with full game + statistics + analytics.  
+- `README.md` — Project documentation.  
+
+---
+
+## 📸 Visuals
+*(Insert screenshots of gameplay and charts here)*  
+
+---
+
+## 🙏 Acknowledgments
+- **Professor Aana Varvak** for invaluable guidance.  
+- **OpenStax Biology** for glossary resources.  
+- Authors of *Python Programming: An Introduction to Computer Science* for the `graphics.py` framework used in the Python version.  
+
+---
+
+## 🚀 Try It
+- **Python version**: Run `SelfProject.py` with Python (requires `graphics.py` and `fnl.txt`).  
+- **Web version**: Open `.html` in a browser with `fnl.txt` in the same folder.  
+
+---
+
+## 📌 Graduate Application Note
+- **Python version** shows my foundation in **programming and biology-focused educational tools**.  
+- **Web version** extends the project into **data analytics and visualization**, demonstrating how biological information can be logged, analyzed, and communicated effectively.  
+
+Together, these highlight my preparation for graduate-level work in **bioinformatics, protein docking, and biostatistics**, where programming and statistical modeling are essential.
+
+---
